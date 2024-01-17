@@ -18,10 +18,6 @@ if (emails === null) {
   (regUserEmail =/^[a-zA-Z0-9]+([a-zA-Z0-9._-])*@[a-zA-Z0-9.-]*\.[a-zA-Z]{2,4}$/),
   (regPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@_$%^&*-]).{8,}$/);
 
-
-
-
-
 function singUpFun() {
  
   login.userEmail = document.getElementById("userEmail").value;

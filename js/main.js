@@ -141,3 +141,157 @@ function displayCarProduct() {
 function displayFavoriteProduct() {
   // console.log(favoriteProduct);
 }
+//  start Products  section 
+
+async function getProductFromApi(file) {
+  let x = await fetch(file),
+    y = await x.text(),
+    z;
+  data.length != 0
+    ? (z = data.concat(JSON.parse(y)))
+    : (z = JSON.parse(y).products);
+  data = z;
+  filterDataCategory = data;
+  
+  // console.log(data);
+}
+function handleMergeAPIData(i, category) {
+  switch (data[i].category) {
+    case "smartphones":
+    case "laptops":
+    case "fragrances":
+    case "skincare":
+    case "groceries":
+    case "home-decoration":
+      return data[i].thumbnail;
+    case "men's clothing":
+    case "jewelery":
+    case "electronics":
+    case "women's clothing":
+      return data[i].image;
+  }
+}
+function displayByCategory(category) {
+  let dataContainer = ``,
+    images = "";
+  // filterDataCategory = [];
+  if (category == "all") {
+    for (let i = 0; i < data.length; i++) {
+      images = handleMergeAPIData(i, category);
+      // console.log(images);
+      dataContainer += `<div class="card p-3 " >
+    <figure> <img src=${images} class="card-img-top" alt="${data[i].title}">
+      <div class="productsIcons">
+         <div class="iconContainer openProduct" onclick="productDetails(${i})"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
+         <div class="iconContainer addToFav" onclick ="favoriteProductFun(${i})"><i class="fa-regular fa-heart"></i></div>
+         <div class="iconContainer addToCar" onclick = "  carProductFun(${i})"><i class="fa-solid fa-cart-arrow-down"></i></div></div>
+    </figure>
+    <div class="card-body">
+      <p class="card-text">${data[i].title}</p>
+      <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+          class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+      <p>1${data[i].price}$</p>
+    </div>
+  </div>`;
+    }
+  } else {
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].category == category) {
+        images = handleMergeAPIData(i, category);
+        // console.log(images);
+        dataContainer += `<div class="card p-3 " >
+            <figure> <img src=${images} class="card-img-top" alt="${data[i].title}">
+              <div class="productsIcons">
+                 <div class="iconContainer openProduct" onclick="productDetails(${i})"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
+                 <div class="iconContainer addToFav" onclick ="favoriteProductFun(${i})"><i class="fa-regular fa-heart"></i></div>
+                 <div class="iconContainer addToCar" onclick = "carProductFun(${i})"><i class="fa-solid fa-cart-arrow-down"></i></div></div>
+            </figure>
+            <div class="card-body">
+              <p class="card-text">${data[i].title}</p>
+              <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+              <p>1${data[i].price}$</p>
+            </div>
+          </div>`;
+      }
+    }
+  }
+  // console.log(filterDataCategory);
+  // console.log(dataContainer);
+  document.getElementById("all").innerHTML = dataContainer;
+}
+function displayProduct() {
+  document.getElementById("all-tab").addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("all");
+  });
+  document.getElementById("men-tab").addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("men's clothing");
+  });
+  document.getElementById("women-tab").addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("women's clothing");
+  });
+  document.getElementById("jewelry-tab").addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("jewelery");
+  });
+  document
+    .getElementById("smartphones-tab")
+    .addEventListener("click", function () {
+      // console.log("click");
+      displayByCategory("smartphones");
+    });
+  document.getElementById("laptops-tab").addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("laptops");
+  });
+  document
+    .getElementById("electronics-tab")
+    .addEventListener("click", function () {
+      // console.log("click")
+      displayByCategory("electronics");
+    });
+  document
+    .getElementById("fragrances-tab")
+    .addEventListener("click", function () {
+      // console.log("click")
+      displayByCategory("fragrances");
+    });
+  document
+    .getElementById("skincare-tab")
+    .addEventListener("click", function () {
+      // console.log("click")
+      displayByCategory("skincare");
+    });
+  document
+    .getElementById("groceries-tab")
+    .addEventListener("click", function () {
+      // console.log("click")
+      displayByCategory("groceries");
+    });
+  document
+    .getElementById("homeDecoration-tab")
+    .addEventListener("click", function () {
+      // console.log("click")
+      displayByCategory("home-decoration");
+    });
+  document
+    .getElementById("wishlist")
+    .addEventListener("click", displayFavoriteProduct);
+  document.getElementById("cart").addEventListener("click", function () {
+    displayCarProduct();
+  });
+}
+async function name() {
+  await getProductFromApi("https://dummyjson.com/products");
+  await getProductFromApi("https://fakestoreapi.com/products");
+  // await displayByPrice(10, 20);
+  // await displayByWord("Laptop");
+  displayByCategory("all");
+  displayProduct();
+}
+name();
+
+// end Products  section 
