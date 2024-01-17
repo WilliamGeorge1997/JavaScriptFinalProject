@@ -86,3 +86,76 @@ img {
 .ten span:nth-of-type(6) {
   animation-delay: 0.6s;
 }
+
+.input_login {
+    margin-top: 50px;
+  }
+  
+  #loginForm .container {
+    width: 800px;
+    padding: 80px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 1px 1px 30px var(--mainColor--);
+    color: #0b0909;
+  }
+  #person {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    color: var(--mainColor--);
+    border-radius: 50%;
+  }
+  input::placeholder {
+    color: rgb(0, 0, 0);
+  }
+  input:enabled {
+    border: none;
+  }
+  #loginForm input {
+    border: none;
+    outline: none;
+    border-radius: 0;
+    color: var(--mainColor--);
+    border-bottom: var(--mainColor--) solid 1px;
+    background-color: transparent;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 300px;
+    color: #0b0909;
+  }
+  
+  #loginForm button {
+    background-color: var(--mainColor--);
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    font-size: larger;
+    color: #0b0909;
+    outline: none;
+    transition: all 300ms linear 0s;
+    border: 1px solid #71cd14;
+  }
+  #loginForm button:hover {
+    background: transparent;
+    color: #71cd14;
+  }
+  #loginForm #message {
+    margin-top: 20px;
+    font-weight: bold;
+    color: rgb(197, 172, 172);
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
