@@ -350,3 +350,102 @@ header .carousel .carousel-caption h2 {
 }
 
 /* end Products  section  */
+
+
+/*  start productDetails */
+#productDetails button{background-color:var(--mainColor--);}
+#productDetails samp {
+  color: var(--mainColor--);
+}
+
+#productDetails h4 ,#productDetails h2,#productDetails p {
+  font-weight: bold;
+  color: white;
+}
+
+#productDetails {
+  /* overflow-y: scroll; */
+  min-height: 100vh;
+  color: white;
+  padding: 50px 0;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+#productDetails img {
+  height: 300px;
+}
+#productDetails .fa-circle-xmark{
+/* background-color: var(--mainColor--); */
+color:  var(--mainColor--);
+
+}
+#productDetails .main_title {
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*end productDetails */
+
+
+/* --------------------------- START OF CONTACT US -------------------------- */
+/* ------------------------------- START FORM ------------------------------- */
+#contact .container form textarea {
+  width: 100%;
+  resize: none;
+  outline: none;
+  border: 1px rgb(231, 231, 231) solid;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+#contact .container form textarea:focus {
+  outline: none;
+}
+#contact .container form textarea::placeholder {
+  color: #cdcdcd;
+  font-size: 16px;
+}
+#contact .container form input {
+  width: 100%;
+  resize: none;
+  outline: none;
+  border: 1px rgb(231, 231, 231) solid;
+  padding: 15px 0px 15px 10px;
+  border-radius: 5px;
+}
+#contact .container form input:focus {
+  outline: none;
+}
+#contact .container form input::placeholder {
+  color: #cdcdcd;
+  font-size: 14px;
+}
+/* -------------------------------- END FORM -------------------------------- */
+#contact .container a {
+  color: #212529;
+  font-size: 16px;
+}
+#contact .container .gray-paragraph {
+  color: #999999;
+  font-size: 14px;
+}
+#contact .container .main-btn {
+  background: #71cd14;
+  padding: 11px 30px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  outline: none !important;
+  box-shadow: none !important;
+  text-align: center;
+  border: 1px solid #71cd14;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 300ms linear 0s;
+  border-radius: 5px;
+  margin: 0px 5px;
+}
+#contact .container .main-btn:hover {
+  background: transparent;
+  color: #71cd14;
+}
+/* --------------------------- END OF CONTACT US --------------------*/
