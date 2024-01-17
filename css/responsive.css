@@ -144,3 +144,15 @@ font-size: 36px;
   }
 }
 /* ------------------------------ END OF HEADER ------------------------ */
+/* = = = = = = = = = = START OF ABOUT = = = = = = = = = = */
+@media (max-width: 991px) {
+  .main_title {
+    margin-bottom: 45px;
+  }
+}
+@media (min-width: 1200px) {
+  #about_us .about_content .about_text p {
+    margin-top: 80px !important;
+  }
+}
+/* = = = = = = = = = = START OF ABOUT = = = = = = = = = = */

@@ -175,4 +175,80 @@ header .carousel .carousel-caption h2 {
 }
 
 /* ------------------------------ END OF HEADER  ------------------------------ */
+/* = = = = = = = = = = START OF ABOUT = = = = = = = = = = */
+#about_us .main_title {
+  margin-bottom: 40px;
+}
+
+.main_title h2 {
+  font-size: 24px;
+  color: #2a2a2a;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.main_title h2 span {
+  position: relative;
+  display: inline-block;
+}
+
+.main_title h2 span:after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -15px;
+  width: 100%;
+  height: 1px;
+  background: #ebedee;
+}
+
+.main_title p {
+  font-size: 14px;
+  line-height: 24px;
+  color: #797979;
+}
+#about_us .about_content .about_img img {
+  width: 100%;
+}
+#about_us .about_content .about_welcome {
+  font-size: 36px;
+  font-weight: 700;
+  color: rgb(113, 205, 20);
+  position: relative;
+}
+#about_us .about_content .about_text p {
+  font-size: 18px;
+  line-height: 40px;
+}
+#about_us .about_content .about_button button {
+  background-color: #71cd14;
+  transition: all 0.3s linear 0s;
+  border-radius: 0px;
+}
+
+#about_us .about_content .about_button button:hover {
+  background-color: #50930d;
+}
+#about_us .about_content .about_button button a {
+  text-decoration: none;
+}
+#about_us .about_content .about_social a.social-icon {
+  margin-left: 8px;
+  width: 40px;
+  color: #ffffff;
+  height: 40px;
+  transition: all 0.3s linear 0s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #71cd14;
+}
+
+#about_us .about_content .about_social a.social-icon:hover {
+  background: #50930d;
+}
+
+/* = = = = = = = = = = END OF ABOUT = = = = = = = = = = */
+
   
