@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyBuy checkout</title>
+    <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- ----------The start of the navbar----------->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary m-auto z-3">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><img id="nav-logo" src="images/nav-logo.png" alt="EasyBuy Logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html#home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html#about_us"
+                >About</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html#Products"
+                >Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html#contact"
+                >Contact us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="icons d-flex">
+          <li class="username me-2" id="homeUsername" data-index=""></li>
+          <li class="nav-item dropdown">
+            <a
+              class="search"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+            </a>
+            <ul class="dropdown-menu search_dropdown">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+              </form>
+            </ul>
+          </li>
+          <li class="wishlist" id="wishlist">
+            <a><i class="fa-solid fa-heart fa-lg"></i></a>
+          </li>
+          <li class="cart" id="cart">
+            <a href="cart.html"
+              ><i class="fa-solid fa-cart-shopping fa-lg"></i
+            ></a>
+          </li>
+          <li class="auth d-block" id="auth">
+            <a class="login" href="login.html">Login</a>
+            <a class="register" href="signup.html">Register</a>
+          </li>
+          <a class="signout d-none" href="">
+            <i class="fa-solid fa-arrow-right-from-bracket fa-lg"> </i
+          ></a>
+        </div>
+      </div>
+    </nav>
+    <!-- ----------The end of the navbar----------->
+
+    <main>
+      <!-- ----------The start of the banner section----------->
+      <section id="banner-section">
+        <div class="banner">
+          <div class="container d-flex">
+            <div class="left-content ps-4">
+              <h2>Product Checkout</h2>
+              <p>Very us move be blessed multiply night</p>
+            </div>
+
+            <div class="right-content mt-4">
+              <a href="index.html">Home</a>
+              <span>/</span>
+              <a href="checkout.html">Product Checkout</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ----------The end of the banner section----------->
+
+      <!-- ----------The start of the checkout section----------->
+      <section id="checkout-section" class="py-5 my-5">
+        <form>
+          <div class="container">
+            <h2 class="mb-4">Belling Details</h2>
+            <div class="row g-5">
+              <!-- ----------The start of the belling details ----------->
+              <!-- ----------------------------- First name ------------------------------ -->
+              <div class="col-md-8 belling-details">
+                <div class="input-group mb-1">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="First Name"
+                    aria-label="FirstName"
+                    aria-describedby="basic-addon1"
+                    id="firstName"
+                    required
+                  />
+                </div>
+                <div class="text-danger hidden m-0" id="firstNameError"></div>
+                <!-- ------------------------------ Last name ------------------------------ -->
+                <div class="mb-1 mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Last Name"
+                    aria-label="LastName"
+                    aria-describedby="basic-addon1"
+                    id="lastName"
+                    required
+                  />
+                </div>
+                <div class="text-danger hidden m-0" id="lastNameError"></div>
+                <!-- ---------------------------- Company name ----------------------------- -->
+                <div class="input-group mb-1 mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Company Name"
+                    aria-label="companyName"
+                    aria-describedby="basic-addon1"
+                    id="companyName"
+                    required
+                  />
+                </div>
+                <div class="text-danger hidden m-0" id="companyNameError"></div>
+                <!-- ---------------------------- Phone number ----------------------------- -->
+                <div class="input-group mt-3 mb-1">
+                  <input
+                    type="tel"
+                    id="phoneNumber"
+                    class="form-control"
+                    placeholder="Mobile ex: (123)456-7890"
+                    aria-label="PhoneNumber"
+                    aria-describedby="basic-addon1"
+                    required
+                  />
+                </div>
+                <div class="text-danger hidden m-0" id="PhoneNumberError"></div>
+                <!-- ---------------------------- Email address ----------------------------- -->
+                <div>
+                  <input
+                    type="email"
+                    class="form-control mt-3"
+                    placeholder="example@example.com"
+                    aria-label="Emailaddress"
+                    aria-describedby="basic-addon1"
+                    id="email"
+                    required
+                  />
+                </div>
+                <div class="text-danger hidden m-0" id="emailInputError"></div>
+
+                <!-- ---------------------------- Select country ----------------------------- -->
+                <select required class="form-select mt-3" aria-label="Select County">
+                  <option selected>Select County</option>
+                  <option value="1">County</option>
+                  <option value="2">County</option>
+                  <option value="3">County</option>
+                </select>
+
+                <!-- ---------------------------- Address line ----------------------------- -->
+                <div class="input-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Address line"
+                    aria-label="addressLine"
+                    aria-describedby="basic-addon1"
+                    id="addressLine"
+                    required
+                  />
+                </div>
+                <div class="text-danger hidden m-0" id="addressLineError"></div>
+
+                <!-- ---------------------------- Town/City ----------------------------- -->
+                <div class="input-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Town/city"
+                    aria-label="addressLine"
+                    aria-describedby="basic-addon1"
+                    id="town"
+                    required
+                  />
+                </div>
+                <div class="text-danger hidden m-0" id="townError"></div>
+
+                <!-- ---------------------------- District ----------------------------- -->
+                <select class="form-select mt-3" aria-label="District">
+                  <option selected>District</option>
+                  <option value="1">District</option>
+                  <option value="2">District</option>
+                  <option value="3">District</option>
+                </select>
+
+                <!-- ---------------------------- Postal Code / ZIP ----------------------------- -->
+                <div class="input-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Postal Code / ZIP"
+                    aria-label="postalcode"
+                    aria-describedby="basic-addon1"
+                    id="postalCode"
+                    required
+                  />
+                </div>
+                <div class="text-danger hidden m-0" id="postCodeError"></div>
+
+                <!-- --------------------------- Shipping Details------------------------ -->
+                <h5 class="mt-5">Shipping Details</h5>
+                <hr />
+
+                <div class="mt-3 mt-4">
+                  <textarea
+                    class="form-control"
+                    id="OrderTextarea"
+                    rows="5"
+                    placeholder="Order Notes"
+                  ></textarea>
+                </div>
+              </div>
+              <!-- ----------The end of the belling details  ----------->
+
+              <!-- ----------The start of the your order ----------->
+              <div class="col-md-4 your-order">
+                <h2 class="mb-4 mt-2">Your Order</h2>
+                <hr />
+
+                <form class="form">
+                  <table class="table text-center">
+                    <thead>
+                      <th>Product</th>
+                      <th>Quantity</th>
+                      <th>Total</th>
+                    </thead>
+                    <tbody id="tBody"></tbody>
+
+                    <tfoot class="fw-bold" id="tFoot"></tfoot>
+                  </table>
+                  <hr />
+
+                  <div class="checkPayment-container mb-5">
+                    <div class="form-check mb-3">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="checkPayment"
+                        id="checkPayment"
+                        checked
+                        required
+                      />
+                      <label class="form-check-label" for="checkPayment">
+                        CHECK PAYMENT
+                      </label>
+                    </div>
+
+                    <p class="payment-paragraph">
+                      Please send a check to Store Name,<br />
+                      Store Street, Store Town, Store State / <br />
+                      County, Store Postcode.
+                    </p>
+                  </div>
+
+                  <div class="Paypal-container d-flex justify-content-between">
+                    <div class="form-check mb-3">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="checkPayment"
+                        id="Paypal"
+                        
+                        reqeuired
+                      />
+                      <label class="form-check-label" for="Paypal">
+                        PAYPAL
+                      </label>
+                    </div>
+
+                    <img
+                      class="e-payment-Logo"
+                      src="images/card.jpg.webp"
+                      alt=" e-payment method"
+                    />
+                  </div>
+
+                  <p class="payment-paragraph">
+                    Please send a check to Store Name,<br />
+                    Store Street, Store Town, Store State / <br />
+                    County, Store Postcode.
+                  </p>
+
+                  <div class="form-check mt-5 terms-container">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="termsCheckBox"
+                      required
+                      
+                      
+                    />
+                    <label
+                      class="form-check-label terms-label"
+                      for="termsCheckBox"
+                    >
+                      I’ve read and accept the
+                      <span class="terms">terms & conditions*</span>
+                    </label>
+                  </div>
+                  <div class="text-danger hidden m-0" id="termsError"></div>
+                  <div class="btn-container text-center mt-4">
+                    <button type="button" class="main-btn" id="proceed">
+                      PROCEED TO PURCHASE
+                    </button>
+                  </div>
+                  <div class="btn-container text-center mt-4">
+                    <a href="cart.html" type="button" class="main-btn">
+                      Back to cart
+                    </a>
+                  </div>
+                </form>
+              </div>
+              <!-- ----------The end of the your order ----------->
+            </div>
+          </div>
+        </form>
+      </section>
+      <!-- ----------The end of the checkout section----------->
+    </main>
+
+    <!-- ----------The start of the footer ----------->
+    <footer class="pt-5 pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h5>Top Products</h5>
+            <ul>
+              <li><a href="#">Managed Website</a></li>
+              <li><a href="#">Manage Reputation</a></li>
+              <li><a href="#">Power Tools</a></li>
+              <li><a href="#">Marketing Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h5>Features</h5>
+            <ul>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h5>Resources</h5>
+            <ul>
+              <li><a href="#">Guides</a></li>
+              <li><a href="#">Research</a></li>
+              <li><a href="#">Experts</a></li>
+              <li><a href="#">Agencies</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6 single-footer-widget">
+            <h5>Newsletter</h5>
+            <p class="trust">You can trust us. we only send promo offers.</p>
+            <div class="form-wrap">
+              <form target="" action="" method="">
+                <input
+                  class="form-control"
+                  name="subscribe-email"
+                  placeholder="Your Email Address"
+                  required
+                  type="email"
+                />
+                <button class="click-btn btn text-white">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom row align-items-center">
+          <p class="footer-text m-0 col-lg-8 col-md-12 text-white">
+            Copyright ©2024 All rights reserved
+          </p>
+          <div
+            class="col-lg-4 col-md-12 footer-social d-flex align-content-center justify-content-center text-center"
+          >
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-dribbble"></i></a>
+            <a href="#"><i class="fa-brands fa-behance"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ----------The end of the footer ----------->
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/checkout.js"></script>
+  </body>
+</html>
