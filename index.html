@@ -10,10 +10,96 @@
     <link rel="stylesheet" href="css/responsive.css">
     <title>EasyBuy</title>
 </head>
-<body>
-    
+<body data-bs-spy="scroll" data-bs-target="#navId">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary m-auto z-3 fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"
+            ><img id="nav-logo" src="images/nav-logo.png" alt="EasyBuy Logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#home"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#about_us">About</a>
+              </li>
+  
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#Products"
+                  >Products</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#contact"
+                  >Contact us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="icons d-flex">
+            <li class="username me-2" id="homeUsername" data-index=""></li>
+            <li class="nav-item dropdown">
+              <a
+                class="search"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+              </a>
+              <ul class="dropdown-menu search_dropdown">
+                <form class="d-flex" role="search">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                </form>
+              </ul>
+            </li>
+            <li class="wishlist" id="wishlist">
+              <a><i class="fa-solid fa-heart fa-lg"></i></a>
+            </li>
+            <li class="cart" id="cart">
+              <a><i class="fa-solid fa-cart-shopping fa-lg"></i></a>
+            </li>
+            <li class="auth d-block" id="auth">
+              <a class="login" href="./login.html">Login</a>
+              <a class="register" href="./signup.html">Register</a>
+            </li>
+            <a class="signout d-none" href="">
+              <i class="fa-solid fa-arrow-right-from-bracket fa-lg"> </i
+            ></input>
+          </div>
+        </div>
+      </nav>
+      <div class="toast align-items-center position-fixed d-none bg-danger text-white " role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            Please Login First.
+          </div>
+        </div>
+      </div>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/loginsignupuser.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

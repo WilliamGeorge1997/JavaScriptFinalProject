@@ -1,0 +1,140 @@
+/* --------------------------------- GLOBAL --------------------------------- */
+:root {
+    --mainColor--: #71cd14;
+    /* --secondMainColor--:BB; */
+    --grayBlack--: rgb(48, 43, 43);
+    --grayWhite--: rgb(95, 95, 95);
+    --red--: rgb(245, 59, 59);
+  }
+  
+  *::selection {
+    background-color: var(--mainColor--);
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  section {
+    margin: 50px 0px;
+    position: relative;
+  }
+  section::after {
+    content: "";
+    width: 80%;
+    height: 1px;
+    background-color: #e4e4e4;
+    left: 9%;
+    bottom: -20px;
+    position: absolute;
+  }
+  
+  /* --------------------------------- GLOBAL --------------------------------- */
+  /* ----------------------------- START OF NAVBAR ---------------------------- */
+  nav .navbar-nav .nav-item .nav-link,
+  #Products li a:not(.dropdown-item) {
+    position: relative;
+    margin: 0px 20px;
+    padding: 8px 0px;
+  }
+  
+  nav .navbar-nav .nav-item .nav-link:hover,
+  #Products li a:hover {
+    color: var(--mainColor--);
+  }
+  
+  nav .navbar-nav .nav-item .nav-link.active,
+  #Products li a.active {
+    color: var(--mainColor--);
+  }
+  
+  nav .cart a i,
+  nav .wishlist a i,
+  nav .search i {
+    color: var(--grayBlack--);
+  }
+  
+  nav ul.search_dropdown {
+    margin-left: 10px;
+    padding-left: 10px;
+    width: 270px;
+  }
+  
+  nav .search {
+    margin-left: 5px;
+  }
+  
+  nav li.username {
+    color: var(--mainColor--);
+    margin-left: 15px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  nav .auth {
+    margin-left: 10px;
+  }
+  
+  nav .auth a {
+    margin: 8px;
+    color: var(--grayBlack--);
+    transition: 0.3s;
+  }
+  #nav-logo {
+    width: 100%;
+  }
+  .navbar-brand {
+    width: 10%;
+  }
+  nav .cart a i,
+  nav .wishlist a i,
+  nav .search i,
+  nav a.signout {
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  
+  nav .cart a i {
+    margin-left: 15px;
+  }
+  
+  nav .wishlist a i {
+    margin-left: 15px;
+  }
+  
+  nav .wishlist a i:hover {
+    color: var(--red--);
+  }
+  
+  nav .auth a:hover,
+  nav .cart a i:hover,
+  nav .search i:hover {
+    color: var(--mainColor--);
+  }
+  
+  nav a.signout:hover {
+    color: var(--red--);
+  }
+  
+  nav a.signout {
+    color: var(--grayBlack--);
+    margin-left: 15px;
+  }
+  
+  .toast {
+    transition: all 0.3s;
+    bottom: 5%;
+    right: 5%;
+    z-index: 5;
+  }
+  
+  /* ------------------------------ END OF NAVBAR ----------------------------- */
+  
