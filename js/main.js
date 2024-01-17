@@ -172,7 +172,8 @@ function handleMergeAPIData(i, category) {
   }
 }
 function displayByCategory(category) {
-  let dataContainer = ``,
+  let allButton=document.getElementById("all"),
+  dataContainer = ``,
     images = "";
   // filterDataCategory = [];
   if (category == "all") {
@@ -218,81 +219,78 @@ function displayByCategory(category) {
   }
   // console.log(filterDataCategory);
   // console.log(dataContainer);
-  document.getElementById("all").innerHTML = dataContainer;
+  allButton.innerHTML = dataContainer;
 }
 function displayProduct() {
-  document.getElementById("all-tab").addEventListener("click", function () {
+  let allTab = document.getElementById("all-tab"),
+  menTab = document.getElementById("men-tab"),
+  womenTab= document.getElementById("women-tab"),
+  jewelryTab = document.getElementById("jewelry-tab"),
+  smartphonesTab = document.getElementById("smartphones-tab"),
+  laptopsTab = document.getElementById("laptops-tab"),
+  electronicsTab = document.getElementById("electronics-tab"),
+  fragrancesTab = document.getElementById("fragrances-tab"),
+  skincareTab = document.getElementById("skincare-tab"),
+  groceriesTab = document.getElementById("groceries-tab"),
+  homeDecorationTab = document.getElementById("homeDecoration-tab"),
+  wishlist = document.getElementById("wishlist"),
+  cart = document.getElementById("cart")
+  ;
+  allTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("all");
   });
-  document.getElementById("men-tab").addEventListener("click", function () {
+  menTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("men's clothing");
   });
-  document.getElementById("women-tab").addEventListener("click", function () {
+  womenTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("women's clothing");
   });
-  document.getElementById("jewelry-tab").addEventListener("click", function () {
+  jewelryTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("jewelery");
   });
-  document
-    .getElementById("smartphones-tab")
-    .addEventListener("click", function () {
+  smartphonesTab.addEventListener("click", function () {
       // console.log("click");
       displayByCategory("smartphones");
     });
-  document.getElementById("laptops-tab").addEventListener("click", function () {
+    laptopsTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("laptops");
   });
-  document
-    .getElementById("electronics-tab")
-    .addEventListener("click", function () {
+  electronicsTab.addEventListener("click", function () {
       // console.log("click")
       displayByCategory("electronics");
     });
-  document
-    .getElementById("fragrances-tab")
-    .addEventListener("click", function () {
+    fragrancesTab.addEventListener("click", function () {
       // console.log("click")
       displayByCategory("fragrances");
     });
-  document
-    .getElementById("skincare-tab")
-    .addEventListener("click", function () {
+    skincareTab.addEventListener("click", function () {
       // console.log("click")
       displayByCategory("skincare");
     });
-  document
-    .getElementById("groceries-tab")
-    .addEventListener("click", function () {
+    groceriesTab.addEventListener("click", function () {
       // console.log("click")
       displayByCategory("groceries");
     });
-  document
-    .getElementById("homeDecoration-tab")
-    .addEventListener("click", function () {
+    homeDecorationTab.addEventListener("click", function () {
       // console.log("click")
       displayByCategory("home-decoration");
     });
-  document
-    .getElementById("wishlist")
-    .addEventListener("click", displayFavoriteProduct);
-  document.getElementById("cart").addEventListener("click", function () {
-    displayCarProduct();
-  });
+  wishlist.addEventListener("click", displayFavoriteProduct);
+  cart.addEventListener("click",displayCarProduct);
 }
-async function name() {
+(async function () {
   await getProductFromApi("https://dummyjson.com/products");
   await getProductFromApi("https://fakestoreapi.com/products");
   // await displayByPrice(10, 20);
   // await displayByWord("Laptop");
   displayByCategory("all");
   displayProduct();
-}
-name();
+})();
 
 // end Products  section 
 
