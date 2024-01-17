@@ -1,0 +1,8 @@
+/* = = = = = = = = = = START OF NAVBAR = = = = = = = = = = */
+@media (max-width: 600px) {
+    nav ul.search_dropdown {
+      width: 250px;
+    }
+  }
+  /* = = = = = = = = = = END OF NAVBAR = = = = = = = = = = */
+  
