@@ -295,3 +295,144 @@ async function name() {
 name();
 
 // end Products  section 
+
+// start product details
+
+function productDetailsClose() {
+  document
+    .getElementById("productDetails")
+    .classList.replace("d-block", "d-none");
+}
+function productDetails(indexOfProduct) {
+  document
+    .getElementById("productDetails")
+    .classList.replace("d-none", "d-block");
+  // console.log(indexOfProduct);
+  let images = "",
+    stocks = "";
+  switch (data[indexOfProduct].category) {
+    case "smartphones":
+    case "laptops":
+    case "fragrances":
+    case "skincare":
+    case "groceries":
+    case "home-decoration":
+      images = data[indexOfProduct].thumbnail;
+      stocks = data[indexOfProduct].stock;
+      break;
+    case "men's clothing":
+    case "jewelery":
+    case "electronics":
+    case "women's clothing":
+      images = data[indexOfProduct].image;
+      stocks = data[indexOfProduct].rating.count;
+      break;
+  }
+  document.getElementById(
+    "productDetailsInner"
+  ).innerHTML = `<div class="p-4"><img src=${images} alt="${data[indexOfProduct].title}"></div>
+<div><i class="fa-solid fa-circle-xmark position-absolute end-0 m-4 top-0 h2" id="productDetailsClose" ></i>
+  <h4>${data[indexOfProduct].title}</h4>
+  <samp>$${data[indexOfProduct].price}</samp>
+  <p>Category :<samp> ${data[indexOfProduct].category}</samp></p>
+  <p> Availability : <samp>${stocks}</samp>
+  </p>
+  <hr>
+  <p>${data[indexOfProduct].description}</p>
+  </p><button type="button" class="btn  " onclick="carProductFun(${indexOfProduct})">ADD TO CART</button>
+</div>
+`;
+  document
+    .getElementById("productDetailsClose")
+    .addEventListener("click", productDetailsClose);
+}
+
+/// filter by price ///////   loading
+function displayByPrice(minPrice, maxPrice) {
+  for (let i = 0; i < filterDataCategory.length; i++) {
+    if (
+      filterDataCategory[i].price >= minPrice &&
+      filterDataCategory[i].price <= maxPrice
+    ) {
+      // console.log(filterDataCategory[i].price);
+      filterDataPrice.push(filterDataCategory[i]);
+    }
+  }
+  // console.log(filterDataPrice);
+}
+
+//// search ///// loading!!
+function displayByWord(word) {
+  filterDataCategory = [];
+  for (let i = 0; i < data.length; i++) {
+    if (
+      data[i].description.includes(word) ||
+      data[i].title.includes(word) ||
+      data[i].category.includes(word)
+    ) {
+      filterDataCategory.push(data[i]);
+      // console.log(filterDataCategory);
+    }
+  }
+  // console.log(filterDataCategory);
+}
+function favoriteProductFun(indexOfProduct) {
+  if (JSON.parse(localStorage.getItem("userLoggedIn")) == null) {
+    document.querySelector(".toast-body").innerHTML = "Please, login first";
+    document.querySelector(".toast").classList.replace("d-none", "d-block");
+    setTimeout(() => {
+      document.querySelector(".toast").classList.replace("d-block", "d-none");
+    }, 1000);
+  } else {
+    document.querySelector(".toast-body").innerHTML =
+      "Product added in the wish list";
+    // console.log(document.querySelector(".toast-body").innerHTML);
+    document.querySelector(".toast").classList.replace("d-none", "d-block");
+    // console.log(document.querySelector(".toast"));
+
+    setTimeout(() => {
+      document.querySelector(".toast").classList.replace("d-block", "d-none");
+    }, 1000);
+    for (let i = 0; i < favoriteProduct.length; i++) {
+      if (favoriteProduct[i] == data[indexOfProduct]) {
+        return;
+      }
+    }
+
+    favoriteProduct.push(data[indexOfProduct]);
+    localStorage.setItem("favoriteProduct", JSON.stringify(favoriteProduct));
+  }
+}
+function carProductFun(indexOfProduct) {
+  if (JSON.parse(localStorage.getItem("userLoggedIn")) == null) {
+    document.querySelector(".toast-body").innerHTML = "Please, login first";
+    document.querySelector(".toast").classList.replace("d-none", "d-block");
+    setTimeout(() => {
+      document.querySelector(".toast").classList.replace("d-block", "d-none");
+    }, 1000);
+  } else {
+    document.querySelector(".toast-body").innerHTML =
+      "Product added in the cart";
+    // console.log(document.querySelector(".toast-body").innerHTML);
+    document.querySelector(".toast").classList.replace("d-none", "d-block");
+    // console.log(document.querySelector(".toast"));
+    document
+      .querySelector(".toast")
+      .classList.replace("bg-danger", "bg-success");
+
+    setTimeout(() => {
+      document.querySelector(".toast").classList.replace("d-block", "d-none");
+    }, 1000);
+    for (let i = 0; i < carProduct.length; i++) {
+      if (carProduct[i] == data[indexOfProduct]) {
+        return;
+      }
+    }
+    countData = [data[indexOfProduct], 1];
+    carProduct.push(countData);
+    userContainer.carProduct = carProduct;
+    localStorage.setItem("userLoggedIn", JSON.stringify(userContainer));
+  }
+}
+ 
+/// end product details
