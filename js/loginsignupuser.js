@@ -140,5 +140,90 @@ function singUpFun() {
   location.assign("../login.html");
 }
 
+function logInFun() {
+  login.userEmail = document.getElementById("userEmail").value;
+  login.password = document.getElementById("password").value;
+  
+  for (let i = 0; i < emails.length; i++) {
+    if (
+      login.userEmail == emails[i].userEmail &&
+      login.password == emails[i].password
+    ) {
+      location.assign("../index.html");
+      localStorage.setItem("userLoggedIn", JSON.stringify(emails[i]));
+      return i;
+    } 
+    
+    else if (login.userEmail == "" && login.password == "") {
+      document.getElementById("passwordError").innerText =
+        "Password is required";
+      document.getElementById("emailError").innerText = "Email is required.";
+      document
+        .getElementById("passwordError")
+        .classList.remove("hidden");
+        setTimeout(() => {
+         document
+        .getElementById("passwordError")
+        .classList.add("hidden");
+        },3000);
+      document
+        .getElementById("emailError")
+        .classList.remove("hidden");
+        setTimeout(() => {
+          document
+        .getElementById("emailError")  
+        .classList.add("hidden");
+        },3000);
+      return;
+
+
+    } else if (login.userEmail == emails[i].userEmail && login.password == "") {
+      document.getElementById("passwordError").innerText =
+        "Password is required.";
+      document
+        .getElementById("passwordError")
+        .classList.remove("hidden");
+        setTimeout(() => {
+          document
+          .getElementById("passwordError")
+          .classList.add("hidden");
+        },3000);
+      return;
+
+    } else if (
+      login.userEmail == emails[i].userEmail &&
+      login.password != emails[i].password
+    ) {
+      document.getElementById("passwordError").innerText =
+        "Incorrect password.";
+      document
+        .getElementById("passwordError")
+        .classList.remove("hidden");
+        setTimeout(() => {
+        document
+        .getElementById("passwordError")
+        .classList.add("hidden");
+        },3000);
+      
+      
+      return;
+    }
+    
+  }
+  document.getElementById("passwordError").innerText =
+  "Email does not exist. Please sign up.";
+  document
+    .getElementById("passwordError")
+    .classList.remove("hidden")
+    setTimeout(() => {
+      document
+      .getElementById("passwordError")
+      .classList.add("hidden");
+    },3000);
+ 
+}
+
+
+
 
 
