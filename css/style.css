@@ -137,4 +137,42 @@
   }
   
   /* ------------------------------ END OF NAVBAR ----------------------------- */
+
+  /* ------------------------------ START OF HEADER ------------------------------ */
+header{
+  margin-top: 74px !important;
+}
+header .carousel .carousel-caption {
+  text-align: left;
+  left: 15%;
+  bottom: 0px;
+  top: 40%;
+}
+
+header .carousel .carousel-caption .carousel-btn {
+  font-size: 12px;
+  text-transform: uppercase;
+  background: #ffffff;
+  border-radius: 0;
+  padding: 8px 12px;
+  border: 0;
+  transition: all 0.3s linear 0s;
+  margin-top: 8px;
+
+}
+
+header .carousel .carousel-caption .carousel-btn a {
+  text-decoration: none;
+  color: black;
+}
+
+header .carousel .carousel-caption .carousel-btn:hover {
+  border: 1px var(--mainColor--) solid;
+}
+
+header .carousel .carousel-caption h2 {
+  color: green;
+}
+
+/* ------------------------------ END OF HEADER  ------------------------------ */
   
