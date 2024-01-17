@@ -55,11 +55,12 @@
             <input type="password" id="password" placeholder="Password" />
           </div>
           <p class="text-danger hidden " id="passwordError"></p>
-          <button id="signUpBtn" class="my-3" onclick="singUpFun()">
+          <div class="passInstractions text-start text-dark" id="passInstractionsError">Password should:<br> -at least 8 letters.<br> -contains chars.<br>-contains a special char.<br>-contains a capital letter.</div>
+          <button  type="button"  id="signUpBtn" class="my-3" onclick="singUpFun()">
             Sign up
           </button>
           <a href="./login.html">
-            <button id="logInBtndisplay">Login</button>
+            <button type="button"  id="logInBtndisplay">Login</button>
           </a>
         </div>
       </div>
