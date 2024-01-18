@@ -156,3 +156,11 @@ font-size: 36px;
   }
 }
 /* = = = = = = = = = = START OF ABOUT = = = = = = = = = = */
+/* = = = = = = = = = = START OF CART = = = = = = = = = = */
+
+@media (max-width: 700px) {
+  #table-section .container .gray-btn {
+    padding: 0px 10px;
+  }
+}
+/* = = = = = = = = = = END OF CART = = = = = = = = = = */
