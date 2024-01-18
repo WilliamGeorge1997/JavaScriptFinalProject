@@ -257,6 +257,8 @@ proceed.addEventListener("click", function (e) {
     input8 === true &&
     input9 === true
   ) {
+    users[userContainer.id].carProduct = [];
+    localStorage.setItem("userEmailsStorage", JSON.stringify(users));
     location.assign("../congratulations.html");
   }
 });
