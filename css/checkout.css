@@ -24,20 +24,17 @@ img {
 
 /* = = = = = = = = = = GLOBAL = = = = = = = = = = */
 /* = = = = = = = = = = START OF NAVBAR = = = = = = = = = = */
-nav .navbar-nav .nav-item .nav-link,
-#Products li a:not(.dropdown-item) {
+nav .navbar-nav .nav-item .nav-link{
   position: relative;
   margin: 0px 20px;
   padding: 8px 0px;
 }
 
-nav .navbar-nav .nav-item .nav-link:hover,
-#Products li a:hover {
+nav .navbar-nav .nav-item .nav-link:hover{
   color: var(--mainColor--);
 }
 
-nav .navbar-nav .nav-item .nav-link.active,
-#Products li a.active {
+nav .navbar-nav .nav-item .nav-link.active {
   color: var(--mainColor--);
 }
 
