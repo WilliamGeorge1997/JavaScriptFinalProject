@@ -37,6 +37,16 @@
     position: absolute;
   }
   
+  /* scroll top */
+  .upArrow{
+    color: var(--mainColor--);
+    font-size: 25px;
+    position: fixed;
+    cursor: pointer;
+    z-index: 10;
+    bottom: 10%;
+    right: 5%;
+  }
   /* --------------------------------- GLOBAL --------------------------------- */
   /* ----------------------------- START OF NAVBAR ---------------------------- */
   nav .navbar-nav .nav-item .nav-link,
