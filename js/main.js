@@ -198,7 +198,7 @@ function displayByCategory(category) {
       <p class="card-text">${data[i].title}</p>
       <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
           class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
-      <p>1${data[i].price}$</p>
+      <p>$${data[i].price}</p>
     </div>
   </div>`;
     }
@@ -218,7 +218,7 @@ function displayByCategory(category) {
               <p class="card-text">${data[i].title}</p>
               <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                   class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
-              <p>1${data[i].price}$</p>
+              <p>$${data[i].price}</p>
             </div>
           </div>`;
       }
