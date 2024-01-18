@@ -141,3 +141,296 @@ function displayCarProduct() {
 function displayFavoriteProduct() {
   // console.log(favoriteProduct);
 }
+//  start Products  section 
+
+async function getProductFromApi(file) {
+  let x = await fetch(file),
+    y = await x.text(),
+    z;
+  data.length != 0
+    ? (z = data.concat(JSON.parse(y)))
+    : (z = JSON.parse(y).products);
+  data = z;
+  filterDataCategory = data;
+  
+  // console.log(data);
+}
+function handleMergeAPIData(i, category) {
+  switch (data[i].category) {
+    case "smartphones":
+    case "laptops":
+    case "fragrances":
+    case "skincare":
+    case "groceries":
+    case "home-decoration":
+      return data[i].thumbnail;
+    case "men's clothing":
+    case "jewelery":
+    case "electronics":
+    case "women's clothing":
+      return data[i].image;
+  }
+}
+function displayByCategory(category) {
+  let allButton=document.getElementById("all"),
+  dataContainer = ``,
+    images = "";
+  // filterDataCategory = [];
+  if (category == "all") {
+    for (let i = 0; i < data.length; i++) {
+      images = handleMergeAPIData(i, category);
+      // console.log(images);
+      dataContainer += `<div class="card p-3 " >
+    <figure> <img src=${images} class="card-img-top" alt="${data[i].title}">
+      <div class="productsIcons">
+         <div class="iconContainer openProduct" onclick="productDetails(${i})"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
+         <div class="iconContainer addToFav" onclick ="favoriteProductFun(${i})"><i class="fa-regular fa-heart"></i></div>
+         <div class="iconContainer addToCar" onclick = "  carProductFun(${i})"><i class="fa-solid fa-cart-arrow-down"></i></div></div>
+    </figure>
+    <div class="card-body">
+      <p class="card-text">${data[i].title}</p>
+      <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+          class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+      <p>1${data[i].price}$</p>
+    </div>
+  </div>`;
+    }
+  } else {
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].category == category) {
+        images = handleMergeAPIData(i, category);
+        // console.log(images);
+        dataContainer += `<div class="card p-3 " >
+            <figure> <img src=${images} class="card-img-top" alt="${data[i].title}">
+              <div class="productsIcons">
+                 <div class="iconContainer openProduct" onclick="productDetails(${i})"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></div>
+                 <div class="iconContainer addToFav" onclick ="favoriteProductFun(${i})"><i class="fa-regular fa-heart"></i></div>
+                 <div class="iconContainer addToCar" onclick = "carProductFun(${i})"><i class="fa-solid fa-cart-arrow-down"></i></div></div>
+            </figure>
+            <div class="card-body">
+              <p class="card-text">${data[i].title}</p>
+              <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+              <p>1${data[i].price}$</p>
+            </div>
+          </div>`;
+      }
+    }
+  }
+  // console.log(filterDataCategory);
+  // console.log(dataContainer);
+  allButton.innerHTML = dataContainer;
+}
+function displayProduct() {
+  let allTab = document.getElementById("all-tab"),
+  menTab = document.getElementById("men-tab"),
+  womenTab= document.getElementById("women-tab"),
+  jewelryTab = document.getElementById("jewelry-tab"),
+  smartphonesTab = document.getElementById("smartphones-tab"),
+  laptopsTab = document.getElementById("laptops-tab"),
+  electronicsTab = document.getElementById("electronics-tab"),
+  fragrancesTab = document.getElementById("fragrances-tab"),
+  skincareTab = document.getElementById("skincare-tab"),
+  groceriesTab = document.getElementById("groceries-tab"),
+  homeDecorationTab = document.getElementById("homeDecoration-tab"),
+  wishlist = document.getElementById("wishlist"),
+  cart = document.getElementById("cart")
+  ;
+  allTab.addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("all");
+  });
+  menTab.addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("men's clothing");
+  });
+  womenTab.addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("women's clothing");
+  });
+  jewelryTab.addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("jewelery");
+  });
+  smartphonesTab.addEventListener("click", function () {
+      // console.log("click");
+      displayByCategory("smartphones");
+    });
+    laptopsTab.addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("laptops");
+  });
+  electronicsTab.addEventListener("click", function () {
+      // console.log("click")
+      displayByCategory("electronics");
+    });
+    fragrancesTab.addEventListener("click", function () {
+      // console.log("click")
+      displayByCategory("fragrances");
+    });
+    skincareTab.addEventListener("click", function () {
+      // console.log("click")
+      displayByCategory("skincare");
+    });
+    groceriesTab.addEventListener("click", function () {
+      // console.log("click")
+      displayByCategory("groceries");
+    });
+    homeDecorationTab.addEventListener("click", function () {
+      // console.log("click")
+      displayByCategory("home-decoration");
+    });
+  wishlist.addEventListener("click", displayFavoriteProduct);
+  cart.addEventListener("click",displayCarProduct);
+}
+(async function () {
+  await getProductFromApi("https://dummyjson.com/products");
+  await getProductFromApi("https://fakestoreapi.com/products");
+  // await displayByPrice(10, 20);
+  // await displayByWord("Laptop");
+  displayByCategory("all");
+  displayProduct();
+})();
+
+// end Products  section 
+
+// start product details
+
+function productDetailsClose() {
+  document
+    .getElementById("productDetails")
+    .classList.replace("d-block", "d-none");
+}
+function productDetails(indexOfProduct) {
+  document
+    .getElementById("productDetails")
+    .classList.replace("d-none", "d-block");
+  // console.log(indexOfProduct);
+  let images = "",
+    stocks = "";
+  switch (data[indexOfProduct].category) {
+    case "smartphones":
+    case "laptops":
+    case "fragrances":
+    case "skincare":
+    case "groceries":
+    case "home-decoration":
+      images = data[indexOfProduct].thumbnail;
+      stocks = data[indexOfProduct].stock;
+      break;
+    case "men's clothing":
+    case "jewelery":
+    case "electronics":
+    case "women's clothing":
+      images = data[indexOfProduct].image;
+      stocks = data[indexOfProduct].rating.count;
+      break;
+  }
+  document.getElementById(
+    "productDetailsInner"
+  ).innerHTML = `<div class="p-4"><img src=${images} alt="${data[indexOfProduct].title}"></div>
+<div><i class="fa-solid fa-circle-xmark position-absolute end-0 m-4 top-0 h2" id="productDetailsClose" ></i>
+  <h4>${data[indexOfProduct].title}</h4>
+  <samp>$${data[indexOfProduct].price}</samp>
+  <p>Category :<samp> ${data[indexOfProduct].category}</samp></p>
+  <p> Availability : <samp>${stocks}</samp>
+  </p>
+  <hr>
+  <p>${data[indexOfProduct].description}</p>
+  </p><button type="button" class="btn  " onclick="carProductFun(${indexOfProduct})">ADD TO CART</button>
+</div>
+`;
+  document
+    .getElementById("productDetailsClose")
+    .addEventListener("click", productDetailsClose);
+}
+
+/// filter by price ///////   loading
+function displayByPrice(minPrice, maxPrice) {
+  for (let i = 0; i < filterDataCategory.length; i++) {
+    if (
+      filterDataCategory[i].price >= minPrice &&
+      filterDataCategory[i].price <= maxPrice
+    ) {
+      // console.log(filterDataCategory[i].price);
+      filterDataPrice.push(filterDataCategory[i]);
+    }
+  }
+  // console.log(filterDataPrice);
+}
+
+//// search ///// loading!!
+function displayByWord(word) {
+  filterDataCategory = [];
+  for (let i = 0; i < data.length; i++) {
+    if (
+      data[i].description.includes(word) ||
+      data[i].title.includes(word) ||
+      data[i].category.includes(word)
+    ) {
+      filterDataCategory.push(data[i]);
+      // console.log(filterDataCategory);
+    }
+  }
+  // console.log(filterDataCategory);
+}
+function favoriteProductFun(indexOfProduct) {
+  if (JSON.parse(localStorage.getItem("userLoggedIn")) == null) {
+    document.querySelector(".toast-body").innerHTML = "Please, login first";
+    document.querySelector(".toast").classList.replace("d-none", "d-block");
+    setTimeout(() => {
+      document.querySelector(".toast").classList.replace("d-block", "d-none");
+    }, 1000);
+  } else {
+    document.querySelector(".toast-body").innerHTML =
+      "Product added in the wish list";
+    // console.log(document.querySelector(".toast-body").innerHTML);
+    document.querySelector(".toast").classList.replace("d-none", "d-block");
+    // console.log(document.querySelector(".toast"));
+
+    setTimeout(() => {
+      document.querySelector(".toast").classList.replace("d-block", "d-none");
+    }, 1000);
+    for (let i = 0; i < favoriteProduct.length; i++) {
+      if (favoriteProduct[i] == data[indexOfProduct]) {
+        return;
+      }
+    }
+
+    favoriteProduct.push(data[indexOfProduct]);
+    localStorage.setItem("favoriteProduct", JSON.stringify(favoriteProduct));
+  }
+}
+function carProductFun(indexOfProduct) {
+  if (JSON.parse(localStorage.getItem("userLoggedIn")) == null) {
+    document.querySelector(".toast-body").innerHTML = "Please, login first";
+    document.querySelector(".toast").classList.replace("d-none", "d-block");
+    setTimeout(() => {
+      document.querySelector(".toast").classList.replace("d-block", "d-none");
+    }, 1000);
+  } else {
+    document.querySelector(".toast-body").innerHTML =
+      "Product added in the cart";
+    // console.log(document.querySelector(".toast-body").innerHTML);
+    document.querySelector(".toast").classList.replace("d-none", "d-block");
+    // console.log(document.querySelector(".toast"));
+    document
+      .querySelector(".toast")
+      .classList.replace("bg-danger", "bg-success");
+
+    setTimeout(() => {
+      document.querySelector(".toast").classList.replace("d-block", "d-none");
+    }, 1000);
+    for (let i = 0; i < carProduct.length; i++) {
+      if (carProduct[i] == data[indexOfProduct]) {
+        return;
+      }
+    }
+    countData = [data[indexOfProduct], 1];
+    carProduct.push(countData);
+    userContainer.carProduct = carProduct;
+    localStorage.setItem("userLoggedIn", JSON.stringify(userContainer));
+  }
+}
+ 
+/// end product details

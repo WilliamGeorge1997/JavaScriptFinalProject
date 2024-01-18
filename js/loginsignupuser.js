@@ -18,10 +18,6 @@ if (emails === null) {
   (regUserEmail =/^[a-zA-Z0-9]+([a-zA-Z0-9._-])*@[a-zA-Z0-9.-]*\.[a-zA-Z]{2,4}$/),
   (regPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@_$%^&*-]).{8,}$/);
 
-
-
-
-
 function singUpFun() {
  
   login.userEmail = document.getElementById("userEmail").value;
@@ -61,7 +57,7 @@ function singUpFun() {
     return;
 
   } else if (!regUserEmail.test(login.userEmail)) {
-    document.getElementById("emailError").innerText = "Email is invalid.";
+    document.getElementById("emailError").innerText = "Email is invalid";
     document
       .getElementById("emailError")
       .classList.remove("hidden");
@@ -103,16 +99,7 @@ function singUpFun() {
       return;
 
     } else if (!regPassword.test(login.password)) {
-      document.getElementById("passwordError").innerText =
-        "password must be 8 (char or num) or more";
-      document
-        .getElementById("passwordError")
-        .classList.remove("hidden")
-        setTimeout(() => {
-          document
-          .getElementById("passwordError")
-          .classList.add("hidden");
-          },3000);
+      document.getElementById("passInstractionsError").classList.remove("passInstractions");
       return;
     }
 

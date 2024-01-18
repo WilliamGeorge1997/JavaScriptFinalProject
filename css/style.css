@@ -251,4 +251,201 @@ header .carousel .carousel-caption h2 {
 
 /* = = = = = = = = = = END OF ABOUT = = = = = = = = = = */
 
-  
+/* start Products  section */
+#Products li a {
+  color: black;
+}
+
+#Products li a {
+  position: relative;
+  cursor: pointer;
+}
+
+#Products .nav-tabs .nav-link.active {
+  border: none;
+}
+
+#Products .nav-tabs .nav-link:hover {
+  isolation: unset;
+  border-color: white;
+}
+
+#Products .nav-tabs {
+  --bs-nav-tabs-border-width: 0px;
+}
+
+#Products span {
+  margin-bottom: 10px;
+  display: block;
+}
+
+#Products figure {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+#Products figure img {
+  border-radius: 0px;
+  height: 300px;
+}
+
+#Products .card {
+  border: none;
+  height: 500px;
+  font-size: 14px;
+}
+
+#Products figure .iconContainer {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  position: relative;
+  right: 0;
+  left: 0;
+  bottom: -50px;
+  /* bottom: -100%; */
+}
+
+#Products figure #openProduct {
+  transition: 0.3s;
+}
+
+#Products figure #addToFav {
+  transition: 0.6s;
+}
+
+#Products figure #addToCar {
+  transition: 0.9s;
+}
+#Products .iconContainer{cursor: pointer;}
+
+#Products figure .productsIcons {
+  background-color:#71cd1486;
+  position: absolute;
+  bottom: -100%;
+  width: 80%;
+  left: 10%;
+  height: 50px;
+  transition: 0.5s;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#Products .card:hover figure .iconContainer,
+#Products .card:hover figure .productsIcons {
+  bottom: 10px;
+}
+
+#Products .card:hover p {
+  color: var(--mainColor--);
+}
+
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: var(--mainColor--);
+}
+
+/* end Products  section  */
+
+
+/*  start productDetails */
+#productDetails button{background-color:var(--mainColor--);}
+#productDetails samp {
+  color: var(--mainColor--);
+}
+
+#productDetails h4 ,#productDetails h2,#productDetails p {
+  font-weight: bold;
+  color: white;
+}
+
+#productDetails {
+  /* overflow-y: scroll; */
+  min-height: 100vh;
+  color: white;
+  padding: 50px 0;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+#productDetails img {
+  height: 300px;
+}
+#productDetails .fa-circle-xmark{
+/* background-color: var(--mainColor--); */
+color:  var(--mainColor--);
+
+}
+#productDetails .main_title {
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*end productDetails */
+
+
+/* --------------------------- START OF CONTACT US -------------------------- */
+/* ------------------------------- START FORM ------------------------------- */
+#contact .container form textarea {
+  width: 100%;
+  resize: none;
+  outline: none;
+  border: 1px rgb(231, 231, 231) solid;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+#contact .container form textarea:focus {
+  outline: none;
+}
+#contact .container form textarea::placeholder {
+  color: #cdcdcd;
+  font-size: 16px;
+}
+#contact .container form input {
+  width: 100%;
+  resize: none;
+  outline: none;
+  border: 1px rgb(231, 231, 231) solid;
+  padding: 15px 0px 15px 10px;
+  border-radius: 5px;
+}
+#contact .container form input:focus {
+  outline: none;
+}
+#contact .container form input::placeholder {
+  color: #cdcdcd;
+  font-size: 14px;
+}
+/* -------------------------------- END FORM -------------------------------- */
+#contact .container a {
+  color: #212529;
+  font-size: 16px;
+}
+#contact .container .gray-paragraph {
+  color: #999999;
+  font-size: 14px;
+}
+#contact .container .main-btn {
+  background: #71cd14;
+  padding: 11px 30px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  outline: none !important;
+  box-shadow: none !important;
+  text-align: center;
+  border: 1px solid #71cd14;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 300ms linear 0s;
+  border-radius: 5px;
+  margin: 0px 5px;
+}
+#contact .container .main-btn:hover {
+  background: transparent;
+  color: #71cd14;
+}
+/* --------------------------- END OF CONTACT US --------------------*/

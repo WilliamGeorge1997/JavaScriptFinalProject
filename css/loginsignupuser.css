@@ -32,6 +32,16 @@ section {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
 }
+.passInstractions{
+  display: none;
+}
+.passStyle{
+  font-size: small;
+  color: grey;
+}
+.hidden{
+  display: none;
+}
 
 /*------- img login----- */
 .img-fluid {
