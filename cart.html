@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyBuy cart</title>
+  <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary m-auto z-3 " >
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img id="nav-logo" src="images/nav-logo.png" alt="EasyBuy Logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html#header">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html#about_us">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html#Products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html#contact">Contact us</a>
+          </li>
+        </ul>
+      </div>
+      <div class="icons d-flex">
+        <li class="username me-2" id="homeUsername" data-index="">
+        </li>
+        <li class="nav-item dropdown">
+          <a class="search" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+          </a>
+          <ul class="dropdown-menu search_dropdown">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            </form>
+          </ul>
+        </li>
+        <li class="wishlist" id="wishlist">
+          <a ><i class="fa-solid fa-heart fa-lg"></i></a>
+        </li>
+        <li class="cart" id="cart">
+          <a href="cart.html"><i class="fa-solid fa-cart-shopping fa-lg"></i></a>
+        </li>
+        <li class="auth d-block " id="auth">
+          <a class="login" href="./login.html">Login</a>
+          <a class="register"  href="./signup.html">Register</a>
+          </li>
+          <a class="signout d-none" href="">
+            <i class="fa-solid fa-arrow-right-from-bracket fa-lg">
+
+            </i></a>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <section id="banner-section">
+      <div class="banner">
+        <div class="container d-flex">
+          <div class="left-content ps-4">
+            <h2>Cart</h2>
+            <p>Very us move be blessed multiply night</p>
+          </div>
+
+          <div class="right-content mt-4">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="cart.html">Cart</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="table-section">
+      <div class="container table-responsive ">
+        <table class="table">
+          <thead class="text-center">
+            <th>No</th>
+            <th >Product image</th>
+            <th>Product name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Remove</th>
+          </thead>
+          <tbody>
+            
+          </tbody>
+          <tfoot>
+          </tfoot>
+        </table>
+        <div class="coupon d-flex justify-content-between">
+          <div><button class="gray-btn">UPDATE CART</button></div>
+          <div class="d-flex">
+            <input type="text" placeholder="Coupon code">
+            <button class="main-btn">APPLY</button>
+              <button class="gray-btn close-cupon">CLOSE COUPON</button>
+          </div>
+        </div>
+        <hr>
+        <div class="text-end mt-5">
+          <button id="continueShopping" class="gray-btn">CONTINUE SHOPPING</button>
+          <button id="proceedToCheckout" class="main-btn">PROCEED TO CHECKOUT</button>
+        </div>
+        <hr>
+
+      </div>
+    </section>
+    <div class="toast align-items-center position-fixed d-none bg-danger text-white" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          Please, select your products first before proceed.
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- --------------------------- Start of footer --------------------------- -->
+  <footer class="pt-5 pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-6 single-footer-widget">
+          <h5>Top Products</h5>
+          <ul>
+            <li><a href="#">Managed Website</a></li>
+            <li><a href="#">Manage Reputation</a></li>
+            <li><a href="#">Power Tools</a></li>
+            <li><a href="#">Marketing Service</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 single-footer-widget">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Brand Assets</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 single-footer-widget">
+          <h5>Features</h5>
+          <ul>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Brand Assets</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 single-footer-widget">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="#">Guides</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Experts</a></li>
+            <li><a href="#">Agencies</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 single-footer-widget">
+          <h5>Newsletter</h5>
+          <p class="trust">You can trust us. we only send promo offers.</p>
+          <div class="form-wrap">
+            <form>
+              <input class="form-control" name="subscribe-email" placeholder="Your Email Address" required
+                type="email" />
+              <button class="click-btn btn text-white">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom row align-items-center">
+        <p class="footer-text m-0 col-lg-8 col-md-12 text-white">
+          Copyright ©2024 All rights reserved
+        </p>
+        <div class="col-lg-4 col-md-12 footer-social d-flex align-content-center justify-content-center text-center">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-dribbble"></i></a>
+          <a href="#"><i class="fa-brands fa-behance"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- ---------------------------- End of footer ---------------------------- -->
+  
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>
