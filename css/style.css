@@ -37,6 +37,19 @@
     position: absolute;
   }
   
+
+  /* start scroll To Top */
+  .upArrow{
+    color: #71cd14;
+    font-size: 45px;
+    position: fixed;
+    cursor: pointer;
+    z-index: 10;
+    bottom: 10%;
+    right: 5%;
+  }
+    /* end scroll To Top */
+
   /* --------------------------------- GLOBAL --------------------------------- */
   /* ----------------------------- START OF NAVBAR ---------------------------- */
   nav .navbar-nav .nav-item .nav-link,

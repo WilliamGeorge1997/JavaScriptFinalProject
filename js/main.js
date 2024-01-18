@@ -2,7 +2,6 @@
 // $(document).ready(function () {
 //   alert("hello");
 // });
-
 let data = [],
   users,
   countData = [],
@@ -13,7 +12,7 @@ let data = [],
   favoriteProduct = [],
   carProduct = [];
 /* ------------------------------- Check Login ------------------------------ */
-function chickLogin() {
+(function chickLogin() {
   if (localStorage.getItem("userLoggedIn") === null) {
     userName = "";
     carProduct = [];
@@ -32,9 +31,7 @@ function chickLogin() {
     document.getElementById("auth").classList.replace("d-block", "d-none");
     document.querySelector(".signout").classList.replace("d-none", "d-block");
   }
-}
-chickLogin();
-
+})();
 document
   .getElementById("wishlist")
   .addEventListener("click", displayFavoriteProduct);
@@ -56,7 +53,6 @@ if (favoriteProduct === null) {
 if (carProduct === null) {
   carProduct = [];
 }
-
 /* -------------------------- Display Cart Product -------------------------- */
 function displayCarProduct() {
   chickLogin();
@@ -136,7 +132,6 @@ function displayCarProduct() {
     .getElementById("CONTINUESHOPPING")
     .addEventListener("click", returnToShopping);
 }
-
 /* ------------------------ Display favorite product ------------------------ */
 function displayFavoriteProduct() {
   // console.log(favoriteProduct);
@@ -291,11 +286,8 @@ function displayProduct() {
   displayByCategory("all");
   displayProduct();
 })();
-
 // end Products  section 
-
 // start product details
-
 function productDetailsClose() {
   document
     .getElementById("productDetails")
@@ -344,8 +336,7 @@ function productDetails(indexOfProduct) {
     .getElementById("productDetailsClose")
     .addEventListener("click", productDetailsClose);
 }
-
-/// filter by price ///////   loading
+/// filter by price ///   loading
 function displayByPrice(minPrice, maxPrice) {
   for (let i = 0; i < filterDataCategory.length; i++) {
     if (
@@ -358,8 +349,7 @@ function displayByPrice(minPrice, maxPrice) {
   }
   // console.log(filterDataPrice);
 }
-
-//// search ///// loading!!
+/// search /// loading!!
 function displayByWord(word) {
   filterDataCategory = [];
   for (let i = 0; i < data.length; i++) {
