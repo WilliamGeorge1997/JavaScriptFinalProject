@@ -1,0 +1,44 @@
+*::selection {
+  background-color: #71cd14;
+}
+a {
+  text-decoration: none;
+}
+#congrats-container {
+  border-radius: 0.625rem;
+  background-color: white;
+  box-shadow: 0.0625rem 0.0625rem 1.875rem  #71cd14;
+  color: #0b0909;
+  margin-top: 3.125rem;
+  padding: 1.25rem;
+}
+#congrats-container span {
+  background-color: #71cd14;
+}
+#congrats-container a {
+  background: #71cd14;
+  padding: 0.6875rem 1.875rem;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  outline: none !important;
+  box-shadow: none !important;
+  text-align: center;
+  border: 0.0625rem solid #71cd14;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 300ms linear 0s;
+  border-radius: 0.3125rem;
+  margin: 0rem 0.3125rem;
+}
+#congrats-container a:hover {
+  background: transparent;
+  color: #71cd14;
+}
+#congrats-container p {
+  font-size: 1.125rem;
+  line-height: 2.5rem;
+}
+#congrats-container h2 {
+  margin-top: 1.25rem;
+}

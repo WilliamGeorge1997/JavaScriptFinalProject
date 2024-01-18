@@ -164,3 +164,9 @@ font-size: 36px;
   }
 }
 /* = = = = = = = = = = END OF CART = = = = = = = = = = */
+@media (min-width: 992px) {
+  #congrats-container {
+    width: 50%;
+  }
+}
+/* -------------------------- END OF CONGRATULATIONS ------------------------- */
