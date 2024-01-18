@@ -449,3 +449,109 @@ color:  var(--mainColor--);
   color: #71cd14;
 }
 /* --------------------------- END OF CONTACT US --------------------*/
+/* ----------------------------- START OF FOOTER ---------------------------- */
+footer {
+  background: #0d0d1f;
+}
+
+footer .single-footer-widget h5 {
+  color: #ffffff;
+  margin-bottom: 35px;
+}
+
+footer .single-footer-widget ul {
+  padding-left: 0px;
+}
+
+footer .single-footer-widget ul li {
+  margin-bottom: 15px;
+  list-style: none;
+}
+
+footer .single-footer-widget ul li a {
+  transition: all 0.3s linear 0s;
+  color: #797979;
+  text-decoration: none;
+}
+
+footer .single-footer-widget ul li a:hover {
+  color: #ffffff;
+}
+
+footer .single-footer-widget .form-wrap {
+  margin-top: 25px;
+}
+
+footer .single-footer-widget p.trust {
+  color: #797979;
+}
+
+footer .single-footer-widget input {
+  height: 50px;
+  border: none;
+  width: 70% !important;
+  font-weight: 300;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding-left: 20px;
+  border-radius: 0;
+  font-size: 14px;
+  padding: 10px;
+}
+
+footer .single-footer-widget input::placeholder {
+  color: rgb(146, 146, 146);
+}
+
+footer .single-footer-widget input:focus {
+  outline: none;
+}
+
+footer .single-footer-widget .click-btn {
+  font-size: 12px;
+  text-transform: uppercase;
+  background: var(--mainColor--);
+  border-radius: 0;
+  padding: 8px 12px;
+  border: 0;
+  transition: all 0.3s linear 0s;
+  margin-top: 8px;
+}
+
+footer .single-footer-widget .click-btn:hover {
+  opacity: 0.8;
+}
+
+footer .footer-bottom {
+  margin-top: 50px;
+}
+
+footer .footer-bottom a,
+footer .footer-bottom span {
+  color: var(--mainColor--);
+}
+
+footer .footer-bottom span {
+  font-weight: 700;
+}
+
+footer .footer-bottom .footer-social a {
+  background: rgba(255, 255, 255, 0.15);
+  margin-left: 8px;
+  width: 40px;
+  color: #ffffff;
+  text-align: center;
+  height: 40px;
+  align-content: center;
+  transition: all 0.3s linear 0s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .footer-bottom .footer-social a:hover {
+  background: var(--mainColor--);
+}
+
+/* ------------------------------ END OF FOOTER ----------------------------- */
