@@ -40,12 +40,16 @@
   /* scroll top */
   .upArrow{
     color: var(--mainColor--);
-    font-size: 25px;
+    font-size: 45px;
     position: fixed;
     cursor: pointer;
     z-index: 10;
-    bottom: 10%;
-    right: 5%;
+    bottom: 15%;
+    right: 3%;
+  }
+
+  nav .badge{
+    background-color: var(--mainColor--);
   }
   /* --------------------------------- GLOBAL --------------------------------- */
   /* ----------------------------- START OF NAVBAR ---------------------------- */
@@ -150,7 +154,7 @@
 
   /* ------------------------------ START OF HEADER ------------------------------ */
 header{
-  margin-top: 74px !important;
+  margin-top: 64px !important;
 }
 header .carousel .carousel-caption {
   text-align: left;

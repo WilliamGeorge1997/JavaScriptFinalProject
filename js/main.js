@@ -13,6 +13,7 @@ let data = [],
   favoriteProduct = [],
   carProduct = [];
 /* ------------------------------- Check Login ------------------------------ */
+
 function chickLogin() {
   if (localStorage.getItem("userLoggedIn") === null) {
     userName = "";
@@ -34,7 +35,6 @@ function chickLogin() {
   }
 }
 chickLogin();
-
 document
   .getElementById("wishlist")
   .addEventListener("click", displayFavoriteProduct);
@@ -57,6 +57,13 @@ if (carProduct === null) {
   carProduct = [];
 }
 
+// cart badge 
+function cartBadge() {
+ let cartCounter =document.querySelector(".cartCounter")
+ cartCounter.innerHTML = carProduct.length;
+  // console.log(carProduct.length);
+};
+cartBadge();
 /* -------------------------- Display Cart Product -------------------------- */
 function displayCarProduct() {
   chickLogin();
@@ -283,15 +290,15 @@ function displayProduct() {
   wishlist.addEventListener("click", displayFavoriteProduct);
   cart.addEventListener("click",displayCarProduct);
 }
-(async function () {
+async function name() {
   await getProductFromApi("https://dummyjson.com/products");
   await getProductFromApi("https://fakestoreapi.com/products");
   // await displayByPrice(10, 20);
   // await displayByWord("Laptop");
   displayByCategory("all");
   displayProduct();
-})();
-
+}
+name();
 // end Products  section 
 
 // start product details
@@ -409,6 +416,22 @@ function carProductFun(indexOfProduct) {
       document.querySelector(".toast").classList.replace("d-block", "d-none");
     }, 1000);
   } else {
+    for (let i = 0; i < carProduct.length; i++) {
+console.log(data[indexOfProduct]);
+console.log(carProduct[i][0] );
+      if (carProduct[i][0] == data[indexOfProduct]) {
+          document.querySelector(".toast-body").innerHTML = "This product is already exists in your cart.";
+          document.querySelector(".toast").classList.replace("d-none", "d-block");
+          document
+          .querySelector(".toast")
+          .classList.replace("bg-success", "bg-danger");
+    
+          setTimeout(() => {
+            document.querySelector(".toast").classList.replace("d-block", "d-none");
+          }, 1000);
+        return;
+      }
+    }
     document.querySelector(".toast-body").innerHTML =
       "Product added in the cart";
     // console.log(document.querySelector(".toast-body").innerHTML);
@@ -421,15 +444,12 @@ function carProductFun(indexOfProduct) {
     setTimeout(() => {
       document.querySelector(".toast").classList.replace("d-block", "d-none");
     }, 1000);
-    for (let i = 0; i < carProduct.length; i++) {
-      if (carProduct[i] == data[indexOfProduct]) {
-        return;
-      }
-    }
+    
     countData = [data[indexOfProduct], 1];
     carProduct.push(countData);
     userContainer.carProduct = carProduct;
     localStorage.setItem("userLoggedIn", JSON.stringify(userContainer));
+    cartBadge() ;
   }
 }
  
