@@ -52,12 +52,8 @@
         <li class="wishlist d-none" id="wishlist">
           <a ><i class="fa-solid fa-heart fa-lg"></i></a>
         </li>
-        <li class="cart position-relative" id="cart">
+        <li class="cart" id="cart">
           <a><i class="fa-solid fa-cart-shopping fa-lg"></i></a>
-          <span
-            class="position-absolute top-0 start-100 translate-middle badge cartCounter rounded-pill ">
-            0
-          </span>
         </li>
         <li class="auth d-block " id="auth">
           <a class="login" href="./login.html">Login</a>
@@ -79,7 +75,7 @@
         </div>
       </div>
 <!-- scroll top -->
-      <a href="#home">
+      <a href="index.html">
         <i class="fa-solid fa-circle-up fa-2xl upArrow"></i>
       </a>
 
@@ -306,7 +302,7 @@
             </ul>
           </div>
           <div class="tab-content text-center" id="myTabContent">
-            <div class="tab-pane fade d-flex flex-wrap  row-cols-xl-4 row-cols-md-3 row-cols-sm-2 show active" id="all"
+            <div class="moataz tab-pane fade d-flex flex-wrap  row-cols-xl-4 row-cols-md-3 row-cols-sm-2 show active" id="all"
               role="tabpanel" aria-labelledby="all-tab">
             </div>
           </div>
@@ -355,16 +351,16 @@
             <div class="mt-4">
               <form action="">
                 <textarea
-                  class="mb-4 form-control contact-input"
+                  class="mb-4"
                   name="message"
                   placeholder="Enter message"
                   rows="8"
                   required
                 ></textarea>
                 <div class="d-flex">
-                  <input required type="text" class ="form-control contact-input" placeholder="Enter your name" pattern="^[a-zA-Z]{2,16}$" />
+                  <input required type="text" placeholder="Enter your name" pattern="^[a-zA-Z]{2,16}$" />
                   <input
-                    class="ms-2 form-control"
+                    class="ms-2"
                     type="email"
                     placeholder="Enter email address"
                     required
@@ -373,7 +369,7 @@
                 <div>
                   <input
                     required
-                    class="mt-3 form-control contact-input"
+                    class="mt-3"
                     type="text"
                     placeholder="Enter subject"
                   />
