@@ -2,8 +2,23 @@
 let signout = document.querySelector(".signout"),
   continueShopping = document.getElementById("continueShopping"),
   proceedToCheckout = document.getElementById("proceedToCheckout"),
-  toast = document.getElementById("toast");
-  signout.addEventListener("click", function (e) {
+  toast = document.getElementById("toast"),
+  homeUserName = document.getElementById("homeUsername"),
+  auth = document.getElementById("auth"),
+  data = [],
+  users,
+  countData = [],
+  userName,
+  userContainer = [],
+  filterDataCategory = [],
+  filterDataPrice = [],
+  favoriteProduct = [],
+  carProduct = [],
+  tableTbody = document.querySelector("#table-section table tbody");
+tableTfoot = document.querySelector("#table-section table tfoot");
+
+signout.addEventListener("click", function (e) {
+
   e.preventDefault();
 });
 
@@ -13,19 +28,17 @@ function checkLogin() {
     userName = "";
     carProduct = [];
     favoriteProduct = [];
-    document.getElementById("homeUsername").innerHTML = "Guest";
-    document.getElementById("auth").classList.replace("d-none", "d-block");
-    document.querySelector(".signout").classList.replace("d-block", "d-none");
+    homeUserName.innerHTML = "Guest";
+    auth.classList.replace("d-none", "d-block");
+    signout.classList.replace("d-block", "d-none");
   } else {
     users = JSON.parse(localStorage.getItem("userEmailsStorage"));
-    // console.log(users[1].carProduct);
     userContainer = JSON.parse(localStorage.getItem("userLoggedIn"));
     userName = userContainer.userName;
-    // favoriteProduct= JSON.parse(localStorage.getItem("favoriteProduct"));
     carProduct = userContainer.carProduct;
-    document.getElementById("homeUsername").innerHTML = userName;
-    document.getElementById("auth").classList.replace("d-block", "d-none");
-    document.querySelector(".signout").classList.replace("d-none", "d-block");
+    homeUserName.innerHTML = userName;
+    auth.classList.replace("d-block", "d-none");
+    signout.classList.replace("d-none", "d-block");
     return carProduct;
   }
 }
@@ -105,11 +118,11 @@ function displayCarProduct() {
     </td>
   </tr>
 `;
-{/* <button class="btn text-danger p-1 text-white" type="button" onclick="deleteProduct(${i})"><i class="fa-solid fa-trash"></i></button> */}
+
     sum += parseInt(cartProducts[i][0].price * cartProducts[i][1]);
   }
-  document.querySelector("#table-section table tbody").innerHTML = container;
-  document.querySelector("#table-section table tfoot").innerHTML = `   
+  tableTbody.innerHTML = container;
+  tableTfoot.innerHTML = `   
   <tr>
     <td></td>
     <td></td>
@@ -138,23 +151,25 @@ function displayCarProduct() {
 }
 displayCarProduct();
 
+/* ---------------------------- Count of Products --------------------------- */
+
 function count(i, countOfProduct) {
-  let sum = 0;
-  if (
-    Number(document.getElementById(`price${i}`).value) == 1 &&
-    countOfProduct == -1
-  ) {
+  /* -------------------------------- Variables of count function ------------------------------- */
+  let sum = 0,
+    price = document.getElementById(`price${i}`),
+    totalPrice = document.getElementById(`totalPrice${i}`),
+    lineThrough = document.getElementById("line-through"),
+    lineThroughDiscount = document.getElementById("line-through-discount");
+    
+  if (Number(price.value) == 1 && countOfProduct == -1) {
     return;
   } else {
-    document.getElementById(`price${i}`).value =
-      parseInt(Number(document.getElementById(`price${i}`).value)) +
-      countOfProduct;
-    document.getElementById(`totalPrice${i}`).innerText = `${
-      document.getElementById(`price${i}`).value *
-      parseInt(cartProducts[i][0].price)
+    price.value = parseInt(Number(price.value)) + countOfProduct;
+    totalPrice.innerText = `${
+      price.value * parseInt(cartProducts[i][0].price)
     }`;
-    cartProducts[i][1] = document.getElementById(`price${i}`).value;
-    // console.log(cartProducts[i][1]);
+    cartProducts[i][1] = price.value;
+
     users[userContainer.id].carProduct = cartProducts;
     localStorage.setItem("userEmailsStorage", JSON.stringify(users));
     localStorage.setItem(
@@ -162,19 +177,15 @@ function count(i, countOfProduct) {
       JSON.stringify(users[userContainer.id])
     );
   }
-  // counter;
-  for (let index = 0; index < cartProducts.length; index++) {
-    sum += Number(document.getElementById(`totalPrice${index}`).innerText);
-    // console.log(
-    //   Number(document.getElementById(`totalPrice${index}`).innerText)
-    // );
-  }
-  document.getElementById("line-through").innerText = sum;
-  document.getElementById("line-through-discount").innerText = parseInt(
-    (sum -= sum * 0.1)
-  );
-}
 
+  for (let index = 0; index < cartProducts.length; index++) {
+    let totalPrice2 = document.getElementById(`totalPrice${index}`);
+    sum += Number(totalPrice2.innerText);
+  }
+  lineThrough.innerText = sum;
+  lineThroughDiscount.innerText = parseInt((sum -= sum * 0.1));
+}
+/* ---------------------------- Continue Shopping --------------------------- */
 continueShopping.addEventListener("click", function (e) {
   e.preventDefault();
   location.assign("../index.html");
@@ -196,9 +207,7 @@ proceedToCheckout.addEventListener("click", function () {
 /* --------------------------- Delete Product -------------------------- */
 
 function deleteProduct(i) {
-  console.log(cartProducts);
   cartProducts.splice(i, 1);
-  console.log(cartProducts);
   users[userContainer.id].carProduct = cartProducts;
   localStorage.setItem("userEmailsStorage", JSON.stringify(users));
   localStorage.setItem("userLoggedIn", JSON.stringify(users[userContainer.id]));

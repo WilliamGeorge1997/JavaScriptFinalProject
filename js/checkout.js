@@ -71,7 +71,6 @@ let proceed = document.getElementById("proceed");
 
 let firstNameInput = document.getElementById("firstName");
 let lastNameInput = document.getElementById("lastName");
-let companyNameInput = document.getElementById("companyName");
 let emailInput = document.getElementById("email");
 let addressLineInput = document.getElementById("addressLine");
 let postCodeErrorInput = document.getElementById("postalCode");
@@ -81,7 +80,6 @@ let termsCheckBox = document.getElementById("termsCheckBox");
 
 let firstNameError = document.getElementById("firstNameError");
 let lastNameError = document.getElementById("lastNameError");
-let companyNameError = document.getElementById("companyNameError");
 let emailInputError = document.getElementById("emailInputError");
 let addressLineError = document.getElementById("addressLineError");
 let postCodeError = document.getElementById("postCodeError");
@@ -133,19 +131,6 @@ function checkLastName() {
     lastNameError.classList.remove("hidden");
     setTimeout(() => {
       lastNameError.classList.add("hidden");
-    }, 3000);
-    return false;
-  } else {
-    return true;
-  }
-}
-
-function checkCompany() {
-  if (companyNameInput.value == "") {
-    companyNameError.innerText = "*Company name is required";
-    companyNameError.classList.remove("hidden");
-    setTimeout(() => {
-      companyNameError.classList.add("hidden");
     }, 3000);
     return false;
   } else {
@@ -240,7 +225,6 @@ proceed.addEventListener("click", function (e) {
   let input1 = checkFirstName();
   let input2 = checkPhone();
   let input3 = checkLastName();
-  let input4 = checkCompany();
   let input5 = checkEmail();
   let input6 = checkAddress();
   let input7 = checkPostCode();
@@ -250,7 +234,6 @@ proceed.addEventListener("click", function (e) {
     input1 === true &&
     input2 === true &&
     input3 === true &&
-    input4 === true &&
     input5 === true &&
     input6 === true &&
     input7 === true &&

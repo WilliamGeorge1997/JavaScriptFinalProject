@@ -414,6 +414,8 @@ color:  var(--mainColor--);
 }
 #contact .container form textarea:focus {
   outline: none;
+  border: 1px solid #b1ff63;
+  box-shadow: 0 0 0 0.25rem rgba(93, 253, 13, 0.25);
 }
 #contact .container form textarea::placeholder {
   color:  var(--offWhite--);
@@ -429,6 +431,8 @@ color:  var(--mainColor--);
 }
 #contact .container form input:focus {
   outline: none;
+  border: 1px solid #b1ff63;
+  box-shadow: 0 0 0 0.25rem rgba(93, 253, 13, 0.25);
 }
 #contact .container form input::placeholder {
   color: #cdcdcd;
