@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyBuy Product details</title>
+    <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/productdetails.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary m-auto z-3">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><img id="nav-logo" src="images/nav-logo.png" alt="EasyBuy Logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#about_us">About</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+    
+                <a class="nav-link dropdown-toggle" href="#productDetails" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Products
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li> -->
+
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#Products"
+                >Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#contact"
+                >Contact us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="icons d-flex">
+          <li class="username me-2" id="homeUsername" data-index=""></li>
+          <li class="nav-item dropdown">
+            <a
+              class="search"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+            </a>
+            <ul class="dropdown-menu search_dropdown">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+              </form>
+            </ul>
+          </li>
+          <li class="wishlist" id="wishlist">
+            <a><i class="fa-solid fa-heart fa-lg"></i></a>
+          </li>
+          <li class="cart" id="cart">
+            <a><i class="fa-solid fa-cart-shopping fa-lg"></i></a>
+          </li>
+          <li class="auth d-block" id="auth">
+            <a class="login" href="./login.html">Login</a>
+            <a class="register" href="./signup.html">Register</a>
+          </li>
+          <a class="signout d-none" href="">
+            <i class="fa-solid fa-arrow-right-from-bracket fa-lg"> </i
+          ></a>
+        </div>
+      </div>
+    </nav>
+    <main class=" w-75 mx-auto my-5 py-5">
+      <div class="text-center mt-1">
+        <h1>Product details</h1>
+      </div>
+      <div id="errorContainer" class="text-center mb-2">
+        <span id="errorMessage"></span>
+      </div>
+      <div class="container">
+        <div class="row mx-auto gx-5">
+          <div id="img" class="col-md-4">
+            <img
+              class="w-100 im_pro"
+              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+              alt=""
+            />
+          </div>
+          <div class="col-md-8">
+            <table class="table table-bordered">
+              <tbody id="tBody"> 
+                <tr>
+                  <td class="fs-5  fw-bold">ID:</td>
+                  <td class="pro_id">${cartProducts[i][0].id}</td>
+                  </tr>
+                  <tr>
+                  <td class="fs-5 fw-bold">Title:</td>
+                  <td class="pro_title">${cartProducts[i][0].title}</td>
+                  </tr>
+                  <tr>
+                  <td class="fs-5 fw-bold">Category:</td>
+                  <td class="pro_cat">${cartProducts[i][0].category}</td>
+                  </tr>
+                  <tr>
+                  <td class="fs-5 fw-bold">Description:</td>
+                  <td class="pro_desc">${cartProducts[i][0].description}</td>
+                  </tr>
+                  <tr>
+                  <tr>
+                  <td class="fs-5 fw-bold">Price:</td>
+                  <td class="pric">${cartProducts[i][0].price}</td>
+                  </tr>
+              </tbody>
+            </table>
+            <button class="main-btn mb-5">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="pt-5 pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h5>Top Products</h5>
+            <ul>
+              <li><a href="#">Managed Website</a></li>
+              <li><a href="#">Manage Reputation</a></li>
+              <li><a href="#">Power Tools</a></li>
+              <li><a href="#">Marketing Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h5>Features</h5>
+            <ul>
+              <li><a href="#">Jobs</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 single-footer-widget">
+            <h5>Resources</h5>
+            <ul>
+              <li><a href="#">Guides</a></li>
+              <li><a href="#">Research</a></li>
+              <li><a href="#">Experts</a></li>
+              <li><a href="#">Agencies</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6 single-footer-widget">
+            <h5>Newsletter</h5>
+            <p class="trust">You can trust us. we only send promo offers.</p>
+            <div class="form-wrap">
+              <form target="" action="" method="">
+                <input
+                  class="form-control"
+                  name="subscribe-email"
+                  placeholder="Your Email Address"
+                  required
+                  type="email"
+                />
+                <button class="click-btn btn text-white">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom row align-items-center">
+          <p class="footer-text m-0 col-lg-8 col-md-12 text-white">
+            Copyright ©2024 All rights reserved
+          </p>
+          <div
+            class="col-lg-4 col-md-12 footer-social d-flex align-content-center justify-content-center text-center"
+          >
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-dribbble"></i></a>
+            <a href="#"><i class="fa-brands fa-behance"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/productdetails.js" ></script>
+  </body>
+</html>

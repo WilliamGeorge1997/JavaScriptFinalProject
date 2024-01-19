@@ -207,8 +207,13 @@ function displayByCategory(category) {
     <div class="card-body">
       <p class="card-text">${data[i].title}</p>
       <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-          class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
-      <p>$${data[i].price}</p>
+      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+      <p class="pri">1${data[i].price}$</p>
+      <p class="id d-none">1${data[i].id}</p>
+      <p class="desc d-none">1${data[i].description}</p>
+      <p class="category d-none">1${data[i].category}</p>
+     
+      
     </div>
   </div>`;
     }
@@ -229,6 +234,9 @@ function displayByCategory(category) {
               <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                   class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
               <p>$${data[i].price}</p>
+              <p class="id d-none">1${data[i].id}</p>
+              <p class="desc d-none">1${data[i].description}</p>
+              <p class="category d-none">1${data[i].category}</p>
             </div>
           </div>`;
       }
@@ -251,54 +259,343 @@ function displayProduct() {
   groceriesTab = document.getElementById("groceries-tab"),
   homeDecorationTab = document.getElementById("homeDecoration-tab"),
   wishlist = document.getElementById("wishlist"),
-  cart = document.getElementById("cart")
-  ;
+  cart = document.getElementById("cart");
+
+  $(".card").on("click", function (e) {
+    let di = e.target.parentElement.parentElement;
+    let img = $(di).find(".card-img-top").attr("src");
+    let title = ($(di).find(".card-text"))[0].innerHTML;
+    let price = ($(di).find(".pri"))[0].innerHTML;
+    let desc = ($(di).find(".desc"))[0].innerHTML;
+    let category = ($(di).find(".category"))[0].innerHTML;
+    let id = ($(di).find(".id"))[0].innerHTML;
+
+
+    let obj = {
+      "img": img,
+      "id":id,
+      "title": title,
+      "price": price,
+      "desc": desc,
+      "category": category,
+      
+    }
+    localStorage.setItem("product", JSON.stringify(obj));
+    location.assign("productdetails.html");
+  });
+
   allTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("all");
+    $(".card").on("click", function (e) {
+      let di = e.target.parentElement.parentElement;
+      let img = $(di).find(".card-img-top").attr("src");
+      let title = ($(di).find(".card-text"))[0].innerHTML;
+      let price = ($(di).find(".pri"))[0].innerHTML;
+      let desc = ($(di).find(".desc"))[0].innerHTML;
+      let category = ($(di).find(".category"))[0].innerHTML;
+      let id = ($(di).find(".id"))[0].innerHTML;
+
+
+      let obj = {
+        "img": img,
+        "id":id,
+        "title": title,
+        "price": price,
+        "desc": desc,
+        "category": category,
+        
+      }
+      localStorage.setItem("product", JSON.stringify(obj));
+      location.assign("productdetails.html");
+    });
+  
   });
   menTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("men's clothing");
+    $(".card").on("click", function (e) {
+      let di = e.target.parentElement.parentElement;
+      let img = $(di).find(".card-img-top").attr("src");
+      let title = ($(di).find(".card-text"))[0].innerHTML;
+      let price = ($(di).find(".pri"))[0].innerHTML;
+      let desc = ($(di).find(".desc"))[0].innerHTML;
+      let category = ($(di).find(".category"))[0].innerHTML;
+      let id = ($(di).find(".id"))[0].innerHTML;
+
+
+      let obj = {
+        "img": img,
+        "id":id,
+        "title": title,
+        "price": price,
+        "desc": desc,
+        "category": category,
+        
+      }
+      localStorage.setItem("product", JSON.stringify(obj));
+      location.assign("productdetails.html");
+    });
   });
   womenTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("women's clothing");
+    $(".card").on("click", function (e) {
+      let di = e.target.parentElement.parentElement;
+      let img = $(di).find(".card-img-top").attr("src");
+      let title = ($(di).find(".card-text"))[0].innerHTML;
+      let price = ($(di).find(".pri"))[0].innerHTML;
+      let desc = ($(di).find(".desc"))[0].innerHTML;
+      let category = ($(di).find(".category"))[0].innerHTML;
+      let id = ($(di).find(".id"))[0].innerHTML;
+
+
+      let obj = {
+        "img": img,
+        "id":id,
+        "title": title,
+        "price": price,
+        "desc": desc,
+        "category": category,
+        
+      }
+      localStorage.setItem("product", JSON.stringify(obj));
+      location.assign("productdetails.html");
+    });
   });
   jewelryTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("jewelery");
+    $(".card").on("click", function (e) {
+      let di = e.target.parentElement.parentElement;
+      let img = $(di).find(".card-img-top").attr("src");
+      let title = ($(di).find(".card-text"))[0].innerHTML;
+      let price = ($(di).find(".pri"))[0].innerHTML;
+      let desc = ($(di).find(".desc"))[0].innerHTML;
+      let category = ($(di).find(".category"))[0].innerHTML;
+      let id = ($(di).find(".id"))[0].innerHTML;
+
+
+      let obj = {
+        "img": img,
+        "id":id,
+        "title": title,
+        "price": price,
+        "desc": desc,
+        "category": category,
+        
+      }
+      localStorage.setItem("product", JSON.stringify(obj));
+      location.assign("productdetails.html");
+    });
   });
   smartphonesTab.addEventListener("click", function () {
       // console.log("click");
       displayByCategory("smartphones");
+      $(".card").on("click", function (e) {
+        let di = e.target.parentElement.parentElement;
+        let img = $(di).find(".card-img-top").attr("src");
+        let title = ($(di).find(".card-text"))[0].innerHTML;
+        let price = ($(di).find(".pri"))[0].innerHTML;
+        let desc = ($(di).find(".desc"))[0].innerHTML;
+        let category = ($(di).find(".category"))[0].innerHTML;
+        let id = ($(di).find(".id"))[0].innerHTML;
+  
+  
+        let obj = {
+          "img": img,
+          "id":id,
+          "title": title,
+          "price": price,
+          "desc": desc,
+          "category": category,
+          
+        }
+        localStorage.setItem("product", JSON.stringify(obj));
+        location.assign("productdetails.html");
+      });
     });
     laptopsTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("laptops");
+    $(".card").on("click", function (e) {
+      let di = e.target.parentElement.parentElement;
+      let img = $(di).find(".card-img-top").attr("src");
+      let title = ($(di).find(".card-text"))[0].innerHTML;
+      let price = ($(di).find(".pri"))[0].innerHTML;
+      let desc = ($(di).find(".desc"))[0].innerHTML;
+      let category = ($(di).find(".category"))[0].innerHTML;
+      let id = ($(di).find(".id"))[0].innerHTML;
+
+
+      let obj = {
+        "img": img,
+        "id":id,
+        "title": title,
+        "price": price,
+        "desc": desc,
+        "category": category,
+        
+      }
+      localStorage.setItem("product", JSON.stringify(obj));
+      location.assign("productdetails.html");
+    });
   });
   electronicsTab.addEventListener("click", function () {
       // console.log("click")
       displayByCategory("electronics");
+      $(".card").on("click", function (e) {
+        let di = e.target.parentElement.parentElement;
+        let img = $(di).find(".card-img-top").attr("src");
+        let title = ($(di).find(".card-text"))[0].innerHTML;
+        let price = ($(di).find(".pri"))[0].innerHTML;
+        let desc = ($(di).find(".desc"))[0].innerHTML;
+        let category = ($(di).find(".category"))[0].innerHTML;
+        let id = ($(di).find(".id"))[0].innerHTML;
+  
+  
+        let obj = {
+          "img": img,
+          "id":id,
+          "title": title,
+          "price": price,
+          "desc": desc,
+          "category": category,
+          
+        }
+        localStorage.setItem("product", JSON.stringify(obj));
+        location.assign("productdetails.html");
+      });
     });
     fragrancesTab.addEventListener("click", function () {
       // console.log("click")
       displayByCategory("fragrances");
+      $(".card").on("click", function (e) {
+        let di = e.target.parentElement.parentElement;
+        let img = $(di).find(".card-img-top").attr("src");
+        let title = ($(di).find(".card-text"))[0].innerHTML;
+        let price = ($(di).find(".pri"))[0].innerHTML;
+        let desc = ($(di).find(".desc"))[0].innerHTML;
+        let category = ($(di).find(".category"))[0].innerHTML;
+        let id = ($(di).find(".id"))[0].innerHTML;
+  
+  
+        let obj = {
+          "img": img,
+          "id":id,
+          "title": title,
+          "price": price,
+          "desc": desc,
+          "category": category,
+          
+        }
+        localStorage.setItem("product", JSON.stringify(obj));
+        location.assign("productdetails.html");
+      });
     });
     skincareTab.addEventListener("click", function () {
       // console.log("click")
       displayByCategory("skincare");
+      $(".card").on("click", function (e) {
+        let di = e.target.parentElement.parentElement;
+        let img = $(di).find(".card-img-top").attr("src");
+        let title = ($(di).find(".card-text"))[0].innerHTML;
+        let price = ($(di).find(".pri"))[0].innerHTML;
+        let desc = ($(di).find(".desc"))[0].innerHTML;
+        let category = ($(di).find(".category"))[0].innerHTML;
+        let id = ($(di).find(".id"))[0].innerHTML;
+  
+  
+        let obj = {
+          "img": img,
+          "id":id,
+          "title": title,
+          "price": price,
+          "desc": desc,
+          "category": category,
+          
+        }
+        localStorage.setItem("product", JSON.stringify(obj));
+        location.assign("productdetails.html");
+      });
     });
     groceriesTab.addEventListener("click", function () {
       // console.log("click")
       displayByCategory("groceries");
+      $(".card").on("click", function (e) {
+        let di = e.target.parentElement.parentElement;
+        let img = $(di).find(".card-img-top").attr("src");
+        let title = ($(di).find(".card-text"))[0].innerHTML;
+        let price = ($(di).find(".pri"))[0].innerHTML;
+        let desc = ($(di).find(".desc"))[0].innerHTML;
+        let category = ($(di).find(".category"))[0].innerHTML;
+        let id = ($(di).find(".id"))[0].innerHTML;
+  
+  
+        let obj = {
+          "img": img,
+          "id":id,
+          "title": title,
+          "price": price,
+          "desc": desc,
+          "category": category,
+          
+        }
+        localStorage.setItem("product", JSON.stringify(obj));
+        location.assign("productdetails.html");
+      });
+
     });
     homeDecorationTab.addEventListener("click", function () {
       // console.log("click")
       displayByCategory("home-decoration");
+      $(".card").on("click", function (e) {
+        let di = e.target.parentElement.parentElement;
+        let img = $(di).find(".card-img-top").attr("src");
+        let title = ($(di).find(".card-text"))[0].innerHTML;
+        let price = ($(di).find(".pri"))[0].innerHTML;
+        let desc = ($(di).find(".desc"))[0].innerHTML;
+        let category = ($(di).find(".category"))[0].innerHTML;
+        let id = ($(di).find(".id"))[0].innerHTML;
+  
+  
+        let obj = {
+          "img": img,
+          "id":id,
+          "title": title,
+          "price": price,
+          "desc": desc,
+          "category": category,
+          
+        }
+        localStorage.setItem("product", JSON.stringify(obj));
+        location.assign("productdetails.html");
+      });
     });
   wishlist.addEventListener("click", displayFavoriteProduct);
   cart.addEventListener("click",displayCarProduct);
+  $(".card").on("click", function (e) {
+    let di = e.target.parentElement.parentElement;
+    let img = $(di).find(".card-img-top").attr("src");
+    let title = ($(di).find(".card-text"))[0].innerHTML;
+    let price = ($(di).find(".pri"))[0].innerHTML;
+    let desc = ($(di).find(".desc"))[0].innerHTML;
+    let category = ($(di).find(".category"))[0].innerHTML;
+    let id = ($(di).find(".id"))[0].innerHTML;
+
+
+    let obj = {
+      "img": img,
+      "id":id,
+      "title": title,
+      "price": price,
+      "desc": desc,
+      "category": category,
+      
+    }
+    localStorage.setItem("product", JSON.stringify(obj));
+    location.assign("productdetails.html");
+  });
 }
 async function name() {
   await getProductFromApi("https://dummyjson.com/products");
