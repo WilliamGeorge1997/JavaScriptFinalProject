@@ -25,9 +25,9 @@ let data = [],
   tableSectionTableTbody = document.querySelector("#table-section table tbody"),
   tableSectionTableTfoot = document.querySelector("#table-section table tfoot"),
   continueShopping = document.getElementById("CONTINUESHOPPING"),
-  productDetails = document.getElementById("productDetails"),
+  productDetailsVar = document.getElementById("productDetails"),
   productDetailsInner = document.getElementById("productDetailsInner"),
-  productDetailsClose = document.getElementById("productDetailsClose"),
+  productDetailsCloseVar = document.getElementById("productDetailsClose"),
   toastBody = document.querySelector(".toast-body")
     
   ;
@@ -314,10 +314,10 @@ name();
 // start product details
 
 function productDetailsClose() {
-  productDetails.classList.replace("d-block", "d-none");
+  productDetailsVar.classList.replace("d-block", "d-none");
 }
 function productDetails(indexOfProduct) {
-  productDetails.classList.replace("d-none", "d-block");
+  productDetailsVar.classList.replace("d-none", "d-block");
   // console.log(indexOfProduct);
   let images = "",
     stocks = "";
@@ -351,7 +351,7 @@ function productDetails(indexOfProduct) {
   </p><button type="button" class="btn  " onclick="carProductFun(${indexOfProduct})">ADD TO CART</button>
 </div>
 `;
- productDetailsClose.addEventListener("click", productDetailsClose);
+ productDetailsCloseVar.addEventListener("click", productDetailsClose);
 }
 
 /// filter by price ///////   loading

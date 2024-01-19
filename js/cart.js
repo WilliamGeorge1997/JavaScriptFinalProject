@@ -3,7 +3,7 @@ let signout = document.querySelector(".signout"),
   continueShopping = document.getElementById("continueShopping"),
   proceedToCheckout = document.getElementById("proceedToCheckout"),
   toast = document.getElementById("toast");
-signout.addEventListener("click", function (e) {
+  signout.addEventListener("click", function (e) {
   e.preventDefault();
 });
 

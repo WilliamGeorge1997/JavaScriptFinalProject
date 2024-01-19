@@ -267,6 +267,7 @@ header .carousel .carousel-caption h2 {
 /* = = = = = = = = = = END OF ABOUT = = = = = = = = = = */
 
 /* start Products  section */
+
 #Products li a {
   color: black;
 }
@@ -291,7 +292,6 @@ header .carousel .carousel-caption h2 {
 
 #Products span {
   margin-bottom: 10px;
-  display: block;
 }
 
 #Products figure {
