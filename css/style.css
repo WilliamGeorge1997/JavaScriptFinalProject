@@ -400,7 +400,9 @@ color:  var(--mainColor--);
 }
 
 /*end productDetails */
-
+#productDetailsClose{
+  cursor: pointer;
+}
 
 /* --------------------------- START OF CONTACT US -------------------------- */
 /* ------------------------------- START FORM ------------------------------- */
