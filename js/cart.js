@@ -188,7 +188,7 @@ function count(i, countOfProduct) {
 /* ---------------------------- Continue Shopping --------------------------- */
 continueShopping.addEventListener("click", function (e) {
   e.preventDefault();
-  location.assign("../index.html");
+  location.assign("../index.html#Products");
 });
 
 /* --------------------------- Proceed to checkout -------------------------- */

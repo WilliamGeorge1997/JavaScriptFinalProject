@@ -12,12 +12,12 @@ let data = [],
   filterDataPrice = [],
   favoriteProduct = [],
   carProduct = [],
-  homeUsername =document.getElementById("homeUsername"),
+  homeUsername = document.getElementById("homeUsername"),
   auth = document.getElementById("auth"),
   signout = document.querySelector(".signout"),
   wishlist = document.getElementById("wishlist"),
-  toast =document.querySelector(".toast"),
-  tableSection =document.querySelector("#table-section"),
+  toast = document.querySelector(".toast"),
+  tableSection = document.querySelector("#table-section"),
   bannerSection = document.querySelector("#banner-section"),
   aboutUs = document.querySelector("#about_us"),
   Products = document.querySelector("#Products"),
@@ -27,10 +27,8 @@ let data = [],
   continueShopping = document.getElementById("CONTINUESHOPPING"),
   productDetailsVar = document.getElementById("productDetails"),
   productDetailsInner = document.getElementById("productDetailsInner"),
-  productDetailsCloseVar = document.getElementById("productDetailsClose"),
-  toastBody = document.querySelector(".toast-body")
-    
-  ;
+  toastBody = document.querySelector(".toast-body");
+
 /* ------------------------------- Check Login ------------------------------ */
 
 function chickLogin() {
@@ -46,7 +44,7 @@ function chickLogin() {
     // console.log(users[1].carProduct);
     userContainer = JSON.parse(localStorage.getItem("userLoggedIn"));
     userName = userContainer.userName;
-    favoriteProduct= JSON.parse(localStorage.getItem("favoriteProduct"));
+    favoriteProduct = JSON.parse(localStorage.getItem("favoriteProduct"));
     carProduct = userContainer.carProduct;
     homeUsername.innerHTML = userName;
     auth.classList.replace("d-block", "d-none");
@@ -73,18 +71,18 @@ if (favoriteProduct === null) {
 if (carProduct === null) {
   carProduct = [];
 }
-// cart badge 
+// cart badge
 function cartBadge() {
- let cartCounter =document.querySelector(".cartCounter")
- cartCounter.innerHTML = carProduct.length;
+  let cartCounter = document.querySelector(".cartCounter");
+  cartCounter.innerHTML = carProduct.length;
   // console.log(carProduct.length);
-};
+}
 cartBadge();
 /* -------------------------- Display Cart Product -------------------------- */
 function displayCarProduct() {
   chickLogin();
   if (localStorage.getItem("userLoggedIn") === null) {
-  toast.classList.replace("d-none", "d-block");
+    toast.classList.replace("d-none", "d-block");
     setTimeout(() => {
       toast.classList.replace("d-block", "d-none");
     }, 1000);
@@ -94,7 +92,7 @@ function displayCarProduct() {
   }
   let sum = 0,
     container = ` `;
-    tableSection.classList.replace("d-none", "d-block");
+  tableSection.classList.replace("d-none", "d-block");
   bannerSection.classList.replace("d-none", "d-block");
   aboutUs.classList.replace("d-block", "d-none");
   Products.classList.replace("d-block", "d-none");
@@ -158,7 +156,7 @@ function displayCarProduct() {
 function displayFavoriteProduct() {
   // console.log(favoriteProduct);
 }
-//  start Products  section 
+//  start Products  section
 
 async function getProductFromApi(file) {
   let x = await fetch(file),
@@ -169,7 +167,7 @@ async function getProductFromApi(file) {
     : (z = JSON.parse(y).products);
   data = z;
   filterDataCategory = data;
-  
+
   // console.log(data);
 }
 function handleMergeAPIData(i, category) {
@@ -190,7 +188,7 @@ function handleMergeAPIData(i, category) {
 }
 function displayByCategory(category) {
   let allButton = document.getElementById("all"),
-  dataContainer = ``,
+    dataContainer = ``,
     images = "";
   // filterDataCategory = [];
   if (category == "all") {
@@ -207,13 +205,8 @@ function displayByCategory(category) {
     <div class="card-body">
       <p class="card-text">${data[i].title}</p>
       <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
-      <p class="pri">1${data[i].price}$</p>
-      <p class="id d-none">1${data[i].id}</p>
-      <p class="desc d-none">1${data[i].description}</p>
-      <p class="category d-none">1${data[i].category}</p>
-     
-      
+          class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+      <p>$${data[i].price}</p>
     </div>
   </div>`;
     }
@@ -230,15 +223,12 @@ function displayByCategory(category) {
                  <div class="iconContainer addToCar" onclick = "carProductFun(${i})"><i class="fa-solid fa-cart-arrow-down"></i></div></div>
             </figure>
             <div class="card-body">
-              <p class="card-text">${data[i].title}</p>
-              <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
-              <p>$${data[i].price}</p>
-              <p class="id d-none">1${data[i].id}</p>
-              <p class="desc d-none">1${data[i].description}</p>
-              <p class="category d-none">1${data[i].category}</p>
-            </div>
-          </div>`;
+            <p class="card-text">${data[i].title}</p>
+            <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+            <p>$${data[i].price}</p>
+          </div>
+        </div>`;
       }
     }
   }
@@ -248,354 +238,65 @@ function displayByCategory(category) {
 }
 function displayProduct() {
   let allTab = document.getElementById("all-tab"),
-  menTab = document.getElementById("men-tab"),
-  womenTab= document.getElementById("women-tab"),
-  jewelryTab = document.getElementById("jewelry-tab"),
-  smartphonesTab = document.getElementById("smartphones-tab"),
-  laptopsTab = document.getElementById("laptops-tab"),
-  electronicsTab = document.getElementById("electronics-tab"),
-  fragrancesTab = document.getElementById("fragrances-tab"),
-  skincareTab = document.getElementById("skincare-tab"),
-  groceriesTab = document.getElementById("groceries-tab"),
-  homeDecorationTab = document.getElementById("homeDecoration-tab"),
-  wishlist = document.getElementById("wishlist"),
-  cart = document.getElementById("cart");
-
-  $(".card").on("click", function (e) {
-    let di = e.target.parentElement.parentElement;
-    let img = $(di).find(".card-img-top").attr("src");
-    let title = ($(di).find(".card-text"))[0].innerHTML;
-    let price = ($(di).find(".pri"))[0].innerHTML;
-    let desc = ($(di).find(".desc"))[0].innerHTML;
-    let category = ($(di).find(".category"))[0].innerHTML;
-    let id = ($(di).find(".id"))[0].innerHTML;
-
-
-    let obj = {
-      "img": img,
-      "id":id,
-      "title": title,
-      "price": price,
-      "desc": desc,
-      "category": category,
-      
-    }
-    localStorage.setItem("product", JSON.stringify(obj));
-    location.assign("productdetails.html");
-  });
+    menTab = document.getElementById("men-tab"),
+    womenTab = document.getElementById("women-tab"),
+    jewelryTab = document.getElementById("jewelry-tab"),
+    smartphonesTab = document.getElementById("smartphones-tab"),
+    laptopsTab = document.getElementById("laptops-tab"),
+    electronicsTab = document.getElementById("electronics-tab"),
+    fragrancesTab = document.getElementById("fragrances-tab"),
+    skincareTab = document.getElementById("skincare-tab"),
+    groceriesTab = document.getElementById("groceries-tab"),
+    homeDecorationTab = document.getElementById("homeDecoration-tab"),
+    wishlist = document.getElementById("wishlist"),
+    cart = document.getElementById("cart");
 
   allTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("all");
-    $(".card").on("click", function (e) {
-      let di = e.target.parentElement.parentElement;
-      let img = $(di).find(".card-img-top").attr("src");
-      let title = ($(di).find(".card-text"))[0].innerHTML;
-      let price = ($(di).find(".pri"))[0].innerHTML;
-      let desc = ($(di).find(".desc"))[0].innerHTML;
-      let category = ($(di).find(".category"))[0].innerHTML;
-      let id = ($(di).find(".id"))[0].innerHTML;
-
-
-      let obj = {
-        "img": img,
-        "id":id,
-        "title": title,
-        "price": price,
-        "desc": desc,
-        "category": category,
-        
-      }
-      localStorage.setItem("product", JSON.stringify(obj));
-      location.assign("productdetails.html");
-    });
-  
   });
   menTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("men's clothing");
-    $(".card").on("click", function (e) {
-      let di = e.target.parentElement.parentElement;
-      let img = $(di).find(".card-img-top").attr("src");
-      let title = ($(di).find(".card-text"))[0].innerHTML;
-      let price = ($(di).find(".pri"))[0].innerHTML;
-      let desc = ($(di).find(".desc"))[0].innerHTML;
-      let category = ($(di).find(".category"))[0].innerHTML;
-      let id = ($(di).find(".id"))[0].innerHTML;
-
-
-      let obj = {
-        "img": img,
-        "id":id,
-        "title": title,
-        "price": price,
-        "desc": desc,
-        "category": category,
-        
-      }
-      localStorage.setItem("product", JSON.stringify(obj));
-      location.assign("productdetails.html");
-    });
   });
   womenTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("women's clothing");
-    $(".card").on("click", function (e) {
-      let di = e.target.parentElement.parentElement;
-      let img = $(di).find(".card-img-top").attr("src");
-      let title = ($(di).find(".card-text"))[0].innerHTML;
-      let price = ($(di).find(".pri"))[0].innerHTML;
-      let desc = ($(di).find(".desc"))[0].innerHTML;
-      let category = ($(di).find(".category"))[0].innerHTML;
-      let id = ($(di).find(".id"))[0].innerHTML;
-
-
-      let obj = {
-        "img": img,
-        "id":id,
-        "title": title,
-        "price": price,
-        "desc": desc,
-        "category": category,
-        
-      }
-      localStorage.setItem("product", JSON.stringify(obj));
-      location.assign("productdetails.html");
-    });
   });
   jewelryTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("jewelery");
-    $(".card").on("click", function (e) {
-      let di = e.target.parentElement.parentElement;
-      let img = $(di).find(".card-img-top").attr("src");
-      let title = ($(di).find(".card-text"))[0].innerHTML;
-      let price = ($(di).find(".pri"))[0].innerHTML;
-      let desc = ($(di).find(".desc"))[0].innerHTML;
-      let category = ($(di).find(".category"))[0].innerHTML;
-      let id = ($(di).find(".id"))[0].innerHTML;
-
-
-      let obj = {
-        "img": img,
-        "id":id,
-        "title": title,
-        "price": price,
-        "desc": desc,
-        "category": category,
-        
-      }
-      localStorage.setItem("product", JSON.stringify(obj));
-      location.assign("productdetails.html");
-    });
   });
   smartphonesTab.addEventListener("click", function () {
-      // console.log("click");
-      displayByCategory("smartphones");
-      $(".card").on("click", function (e) {
-        let di = e.target.parentElement.parentElement;
-        let img = $(di).find(".card-img-top").attr("src");
-        let title = ($(di).find(".card-text"))[0].innerHTML;
-        let price = ($(di).find(".pri"))[0].innerHTML;
-        let desc = ($(di).find(".desc"))[0].innerHTML;
-        let category = ($(di).find(".category"))[0].innerHTML;
-        let id = ($(di).find(".id"))[0].innerHTML;
-  
-  
-        let obj = {
-          "img": img,
-          "id":id,
-          "title": title,
-          "price": price,
-          "desc": desc,
-          "category": category,
-          
-        }
-        localStorage.setItem("product", JSON.stringify(obj));
-        location.assign("productdetails.html");
-      });
-    });
-    laptopsTab.addEventListener("click", function () {
+    // console.log("click");
+    displayByCategory("smartphones");
+  });
+  laptopsTab.addEventListener("click", function () {
     // console.log("click")
     displayByCategory("laptops");
-    $(".card").on("click", function (e) {
-      let di = e.target.parentElement.parentElement;
-      let img = $(di).find(".card-img-top").attr("src");
-      let title = ($(di).find(".card-text"))[0].innerHTML;
-      let price = ($(di).find(".pri"))[0].innerHTML;
-      let desc = ($(di).find(".desc"))[0].innerHTML;
-      let category = ($(di).find(".category"))[0].innerHTML;
-      let id = ($(di).find(".id"))[0].innerHTML;
-
-
-      let obj = {
-        "img": img,
-        "id":id,
-        "title": title,
-        "price": price,
-        "desc": desc,
-        "category": category,
-        
-      }
-      localStorage.setItem("product", JSON.stringify(obj));
-      location.assign("productdetails.html");
-    });
   });
   electronicsTab.addEventListener("click", function () {
-      // console.log("click")
-      displayByCategory("electronics");
-      $(".card").on("click", function (e) {
-        let di = e.target.parentElement.parentElement;
-        let img = $(di).find(".card-img-top").attr("src");
-        let title = ($(di).find(".card-text"))[0].innerHTML;
-        let price = ($(di).find(".pri"))[0].innerHTML;
-        let desc = ($(di).find(".desc"))[0].innerHTML;
-        let category = ($(di).find(".category"))[0].innerHTML;
-        let id = ($(di).find(".id"))[0].innerHTML;
-  
-  
-        let obj = {
-          "img": img,
-          "id":id,
-          "title": title,
-          "price": price,
-          "desc": desc,
-          "category": category,
-          
-        }
-        localStorage.setItem("product", JSON.stringify(obj));
-        location.assign("productdetails.html");
-      });
-    });
-    fragrancesTab.addEventListener("click", function () {
-      // console.log("click")
-      displayByCategory("fragrances");
-      $(".card").on("click", function (e) {
-        let di = e.target.parentElement.parentElement;
-        let img = $(di).find(".card-img-top").attr("src");
-        let title = ($(di).find(".card-text"))[0].innerHTML;
-        let price = ($(di).find(".pri"))[0].innerHTML;
-        let desc = ($(di).find(".desc"))[0].innerHTML;
-        let category = ($(di).find(".category"))[0].innerHTML;
-        let id = ($(di).find(".id"))[0].innerHTML;
-  
-  
-        let obj = {
-          "img": img,
-          "id":id,
-          "title": title,
-          "price": price,
-          "desc": desc,
-          "category": category,
-          
-        }
-        localStorage.setItem("product", JSON.stringify(obj));
-        location.assign("productdetails.html");
-      });
-    });
-    skincareTab.addEventListener("click", function () {
-      // console.log("click")
-      displayByCategory("skincare");
-      $(".card").on("click", function (e) {
-        let di = e.target.parentElement.parentElement;
-        let img = $(di).find(".card-img-top").attr("src");
-        let title = ($(di).find(".card-text"))[0].innerHTML;
-        let price = ($(di).find(".pri"))[0].innerHTML;
-        let desc = ($(di).find(".desc"))[0].innerHTML;
-        let category = ($(di).find(".category"))[0].innerHTML;
-        let id = ($(di).find(".id"))[0].innerHTML;
-  
-  
-        let obj = {
-          "img": img,
-          "id":id,
-          "title": title,
-          "price": price,
-          "desc": desc,
-          "category": category,
-          
-        }
-        localStorage.setItem("product", JSON.stringify(obj));
-        location.assign("productdetails.html");
-      });
-    });
-    groceriesTab.addEventListener("click", function () {
-      // console.log("click")
-      displayByCategory("groceries");
-      $(".card").on("click", function (e) {
-        let di = e.target.parentElement.parentElement;
-        let img = $(di).find(".card-img-top").attr("src");
-        let title = ($(di).find(".card-text"))[0].innerHTML;
-        let price = ($(di).find(".pri"))[0].innerHTML;
-        let desc = ($(di).find(".desc"))[0].innerHTML;
-        let category = ($(di).find(".category"))[0].innerHTML;
-        let id = ($(di).find(".id"))[0].innerHTML;
-  
-  
-        let obj = {
-          "img": img,
-          "id":id,
-          "title": title,
-          "price": price,
-          "desc": desc,
-          "category": category,
-          
-        }
-        localStorage.setItem("product", JSON.stringify(obj));
-        location.assign("productdetails.html");
-      });
-
-    });
-    homeDecorationTab.addEventListener("click", function () {
-      // console.log("click")
-      displayByCategory("home-decoration");
-      $(".card").on("click", function (e) {
-        let di = e.target.parentElement.parentElement;
-        let img = $(di).find(".card-img-top").attr("src");
-        let title = ($(di).find(".card-text"))[0].innerHTML;
-        let price = ($(di).find(".pri"))[0].innerHTML;
-        let desc = ($(di).find(".desc"))[0].innerHTML;
-        let category = ($(di).find(".category"))[0].innerHTML;
-        let id = ($(di).find(".id"))[0].innerHTML;
-  
-  
-        let obj = {
-          "img": img,
-          "id":id,
-          "title": title,
-          "price": price,
-          "desc": desc,
-          "category": category,
-          
-        }
-        localStorage.setItem("product", JSON.stringify(obj));
-        location.assign("productdetails.html");
-      });
-    });
-  wishlist.addEventListener("click", displayFavoriteProduct);
-  cart.addEventListener("click",displayCarProduct);
-  $(".card").on("click", function (e) {
-    let di = e.target.parentElement.parentElement;
-    let img = $(di).find(".card-img-top").attr("src");
-    let title = ($(di).find(".card-text"))[0].innerHTML;
-    let price = ($(di).find(".pri"))[0].innerHTML;
-    let desc = ($(di).find(".desc"))[0].innerHTML;
-    let category = ($(di).find(".category"))[0].innerHTML;
-    let id = ($(di).find(".id"))[0].innerHTML;
-
-
-    let obj = {
-      "img": img,
-      "id":id,
-      "title": title,
-      "price": price,
-      "desc": desc,
-      "category": category,
-      
-    }
-    localStorage.setItem("product", JSON.stringify(obj));
-    location.assign("productdetails.html");
+    // console.log("click")
+    displayByCategory("electronics");
   });
+  fragrancesTab.addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("fragrances");
+  });
+  skincareTab.addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("skincare");
+  });
+  groceriesTab.addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("groceries");
+  });
+  homeDecorationTab.addEventListener("click", function () {
+    // console.log("click")
+    displayByCategory("home-decoration");
+  });
+  wishlist.addEventListener("click", displayFavoriteProduct);
+  cart.addEventListener("click", displayCarProduct);
 }
 async function name() {
   await getProductFromApi("https://dummyjson.com/products");
@@ -606,7 +307,7 @@ async function name() {
   displayProduct();
 }
 name();
-// end Products  section 
+// end Products  section
 
 // start product details
 
@@ -636,7 +337,7 @@ function productDetails(indexOfProduct) {
       stocks = data[indexOfProduct].rating.count;
       break;
   }
- productDetailsInner.innerHTML = `<div class="p-4"><img src=${images} alt="${data[indexOfProduct].title}"></div>
+  productDetailsInner.innerHTML = `<div class="p-4"><img src=${images} alt="${data[indexOfProduct].title}"></div>
 <div><i class="fa-solid fa-circle-xmark position-absolute end-0 m-4 top-0 h2" id="productDetailsClose" ></i>
   <h4>${data[indexOfProduct].title}</h4>
   <samp>$${data[indexOfProduct].price}</samp>
@@ -648,7 +349,9 @@ function productDetails(indexOfProduct) {
   </p><button type="button" class="btn  " onclick="carProductFun(${indexOfProduct})">ADD TO CART</button>
 </div>
 `;
- productDetailsCloseVar.addEventListener("click", productDetailsClose);
+  document
+    .getElementById("productDetailsClose")
+    .addEventListener("click", productDetailsClose);
 }
 
 /// filter by price ///////   loading
@@ -688,20 +391,34 @@ function favoriteProductFun(indexOfProduct) {
       toast.classList.replace("d-block", "d-none");
     }, 1000);
   } else {
-    toastBody.innerHTML =
-      "Product added in the wish list";
-    // console.log(oast-body.innerHTML);
+    for (let i = 0; i < favoriteProduct.length; i++) {
+      if (favoriteProduct[i] == data[indexOfProduct]) {
+        toastBody.innerHTML =
+          "This product is already exists in your wishlist.";
+        toast.classList.replace("d-none", "d-block");
+        toast.classList.replace("bg-success", "bg-danger");
+        setTimeout(() => {
+          toast.classList.replace("d-block", "d-none");
+        }, 1000);
+        return;
+      }
+
+      // console.log(oast-body.innerHTML);
+
+      // console.log(toast);
+
+      setTimeout(() => {
+        toast.classList.replace("d-block", "d-none");
+      }, 1000);
+    }
+
+    toast.classList.replace("bg-danger", "bg-success");
+    toastBody.innerHTML = "Product added in the wish list";
     toast.classList.replace("d-none", "d-block");
-    // console.log(toast);
 
     setTimeout(() => {
       toast.classList.replace("d-block", "d-none");
     }, 1000);
-    for (let i = 0; i < favoriteProduct.length; i++) {
-      if (favoriteProduct[i] == data[indexOfProduct]) {
-        return;
-      }
-    }
 
     favoriteProduct.push(data[indexOfProduct]);
     localStorage.setItem("favoriteProduct", JSON.stringify(favoriteProduct));
@@ -716,15 +433,15 @@ function carProductFun(indexOfProduct) {
     }, 1000);
   } else {
     for (let i = 0; i < carProduct.length; i++) {
-console.log(data[indexOfProduct]);
-console.log(carProduct[i][0] );
+      // console.log(data[indexOfProduct]);
+      // console.log(carProduct[i][0] );
       if (carProduct[i][0] == data[indexOfProduct]) {
-          toastBody.innerHTML = "This product is already exists in your cart.";
-          toast.classList.replace("d-none", "d-block");
-          toast.classList.replace("bg-success", "bg-danger");
-          setTimeout(() => {
+        toastBody.innerHTML = "This product is already exists in your cart.";
+        toast.classList.replace("d-none", "d-block");
+        toast.classList.replace("bg-success", "bg-danger");
+        setTimeout(() => {
           toast.classList.replace("d-block", "d-none");
-          }, 1000);
+        }, 1000);
         return;
       }
     }
@@ -732,18 +449,18 @@ console.log(carProduct[i][0] );
     // console.log(toastBody.innerHTML);
     toast.classList.replace("d-none", "d-block");
     // console.log(toast);
-  toast.classList.replace("bg-danger", "bg-success");
+    toast.classList.replace("bg-danger", "bg-success");
 
     setTimeout(() => {
       toast.classList.replace("d-block", "d-none");
     }, 1000);
-    
+
     countData = [data[indexOfProduct], 1];
     carProduct.push(countData);
     userContainer.carProduct = carProduct;
     localStorage.setItem("userLoggedIn", JSON.stringify(userContainer));
-    cartBadge() ;
+    cartBadge();
   }
 }
- 
+
 /// end product details
