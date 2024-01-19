@@ -11,7 +11,26 @@ let data = [],
   filterDataCategory = [],
   filterDataPrice = [],
   favoriteProduct = [],
-  carProduct = [];
+  carProduct = [],
+  homeUsername =document.getElementById("homeUsername"),
+  auth = document.getElementById("auth"),
+  signout = document.querySelector(".signout"),
+  wishlist = document.getElementById("wishlist"),
+  toast =document.querySelector(".toast"),
+  tableSection =document.querySelector("#table-section"),
+  bannerSection = document.querySelector("#banner-section"),
+  aboutUs = document.querySelector("#about_us"),
+  Products = document.querySelector("#Products"),
+  header = document.querySelector("header"),
+  tableSectionTableTbody = document.querySelector("#table-section table tbody"),
+  tableSectionTableTfoot = document.querySelector("#table-section table tfoot"),
+  continueShopping = document.getElementById("CONTINUESHOPPING"),
+  productDetailsVar = document.getElementById("productDetails"),
+  productDetailsInner = document.getElementById("productDetailsInner"),
+  productDetailsCloseVar = document.getElementById("productDetailsClose"),
+  toastBody = document.querySelector(".toast-body")
+    
+  ;
 /* ------------------------------- Check Login ------------------------------ */
 
 function chickLogin() {
@@ -19,26 +38,24 @@ function chickLogin() {
     userName = "";
     carProduct = [];
     favoriteProduct = [];
-    document.getElementById("homeUsername").innerHTML = "";
-    document.getElementById("auth").classList.replace("d-none", "d-block");
-    document.querySelector(".signout").classList.replace("d-block", "d-none");
+    homeUsername.innerHTML = "";
+    auth.classList.replace("d-none", "d-block");
+    signout.classList.replace("d-block", "d-none");
   } else {
     users = JSON.parse(localStorage.getItem("userEmailsStorage"));
     // console.log(users[1].carProduct);
     userContainer = JSON.parse(localStorage.getItem("userLoggedIn"));
     userName = userContainer.userName;
-    // favoriteProduct= JSON.parse(localStorage.getItem("favoriteProduct"));
+    favoriteProduct= JSON.parse(localStorage.getItem("favoriteProduct"));
     carProduct = userContainer.carProduct;
-    document.getElementById("homeUsername").innerHTML = userName;
-    document.getElementById("auth").classList.replace("d-block", "d-none");
-    document.querySelector(".signout").classList.replace("d-none", "d-block");
+    homeUsername.innerHTML = userName;
+    auth.classList.replace("d-block", "d-none");
+    signout.classList.replace("d-none", "d-block");
   }
 }
 chickLogin();
-document
-  .getElementById("wishlist")
-  .addEventListener("click", displayFavoriteProduct);
-document.querySelector(".signout").addEventListener("click", function () {
+wishlist.addEventListener("click", displayFavoriteProduct);
+signout.addEventListener("click", function () {
   // console.log(users[userContainer.id])
   users[userContainer.id].carProduct = carProduct;
   // console.log( users[userContainer.id].carProduct );
@@ -56,7 +73,6 @@ if (favoriteProduct === null) {
 if (carProduct === null) {
   carProduct = [];
 }
-
 // cart badge 
 function cartBadge() {
  let cartCounter =document.querySelector(".cartCounter")
@@ -68,9 +84,9 @@ cartBadge();
 function displayCarProduct() {
   chickLogin();
   if (localStorage.getItem("userLoggedIn") === null) {
-    document.querySelector(".toast").classList.replace("d-none", "d-block");
+  toast.classList.replace("d-none", "d-block");
     setTimeout(() => {
-      document.querySelector(".toast").classList.replace("d-block", "d-none");
+      toast.classList.replace("d-block", "d-none");
     }, 1000);
     return;
   } else {
@@ -78,15 +94,11 @@ function displayCarProduct() {
   }
   let sum = 0,
     container = ` `;
-  document
-    .querySelector("#table-section")
-    .classList.replace("d-none", "d-block");
-  document
-    .querySelector("#banner-section")
-    .classList.replace("d-none", "d-block");
-  document.querySelector("#about_us").classList.replace("d-block", "d-none");
-  document.querySelector("#Products").classList.replace("d-block", "d-none");
-  document.querySelector("header").classList.replace("d-block", "d-none");
+    tableSection.classList.replace("d-none", "d-block");
+  bannerSection.classList.replace("d-none", "d-block");
+  aboutUs.classList.replace("d-block", "d-none");
+  Products.classList.replace("d-block", "d-none");
+  header.classList.replace("d-block", "d-none");
   // let counter = 1;
   for (let i = 0; i < carProduct.length; i++) {
     let images = handleMergeAPIData(i, carProduct[i].category);
@@ -121,8 +133,8 @@ function displayCarProduct() {
   `;
     sum += carProduct[i].price;
   }
-  document.querySelector("#table-section table tbody").innerHTML = container;
-  document.querySelector("#table-section table tfoot").innerHTML = `   
+  tableSectionTableTbody.innerHTML = container;
+  tableSectionTableTfoot.innerHTML = `   
     <tr>
       <td></td>
       <td></td>
@@ -139,9 +151,7 @@ function displayCarProduct() {
     </tr>
   
   `;
-  document
-    .getElementById("CONTINUESHOPPING")
-    .addEventListener("click", returnToShopping);
+  continueShopping.addEventListener("click", returnToShopping);
 }
 
 /* ------------------------ Display favorite product ------------------------ */
@@ -179,7 +189,7 @@ function handleMergeAPIData(i, category) {
   }
 }
 function displayByCategory(category) {
-  let allButton=document.getElementById("all"),
+  let allButton = document.getElementById("all"),
   dataContainer = ``,
     images = "";
   // filterDataCategory = [];
@@ -304,14 +314,10 @@ name();
 // start product details
 
 function productDetailsClose() {
-  document
-    .getElementById("productDetails")
-    .classList.replace("d-block", "d-none");
+  productDetailsVar.classList.replace("d-block", "d-none");
 }
 function productDetails(indexOfProduct) {
-  document
-    .getElementById("productDetails")
-    .classList.replace("d-none", "d-block");
+  productDetailsVar.classList.replace("d-none", "d-block");
   // console.log(indexOfProduct);
   let images = "",
     stocks = "";
@@ -333,9 +339,7 @@ function productDetails(indexOfProduct) {
       stocks = data[indexOfProduct].rating.count;
       break;
   }
-  document.getElementById(
-    "productDetailsInner"
-  ).innerHTML = `<div class="p-4"><img src=${images} alt="${data[indexOfProduct].title}"></div>
+ productDetailsInner.innerHTML = `<div class="p-4"><img src=${images} alt="${data[indexOfProduct].title}"></div>
 <div><i class="fa-solid fa-circle-xmark position-absolute end-0 m-4 top-0 h2" id="productDetailsClose" ></i>
   <h4>${data[indexOfProduct].title}</h4>
   <samp>$${data[indexOfProduct].price}</samp>
@@ -347,9 +351,7 @@ function productDetails(indexOfProduct) {
   </p><button type="button" class="btn  " onclick="carProductFun(${indexOfProduct})">ADD TO CART</button>
 </div>
 `;
-  document
-    .getElementById("productDetailsClose")
-    .addEventListener("click", productDetailsClose);
+ productDetailsCloseVar.addEventListener("click", productDetailsClose);
 }
 
 /// filter by price ///////   loading
@@ -383,20 +385,20 @@ function displayByWord(word) {
 }
 function favoriteProductFun(indexOfProduct) {
   if (JSON.parse(localStorage.getItem("userLoggedIn")) == null) {
-    document.querySelector(".toast-body").innerHTML = "Please, login first";
-    document.querySelector(".toast").classList.replace("d-none", "d-block");
+    toastBody.innerHTML = "Please, login first";
+    toast.classList.replace("d-none", "d-block");
     setTimeout(() => {
-      document.querySelector(".toast").classList.replace("d-block", "d-none");
+      toast.classList.replace("d-block", "d-none");
     }, 1000);
   } else {
-    document.querySelector(".toast-body").innerHTML =
+    toastBody.innerHTML =
       "Product added in the wish list";
-    // console.log(document.querySelector(".toast-body").innerHTML);
-    document.querySelector(".toast").classList.replace("d-none", "d-block");
-    // console.log(document.querySelector(".toast"));
+    // console.log(oast-body.innerHTML);
+    toast.classList.replace("d-none", "d-block");
+    // console.log(toast);
 
     setTimeout(() => {
-      document.querySelector(".toast").classList.replace("d-block", "d-none");
+      toast.classList.replace("d-block", "d-none");
     }, 1000);
     for (let i = 0; i < favoriteProduct.length; i++) {
       if (favoriteProduct[i] == data[indexOfProduct]) {
@@ -410,39 +412,33 @@ function favoriteProductFun(indexOfProduct) {
 }
 function carProductFun(indexOfProduct) {
   if (JSON.parse(localStorage.getItem("userLoggedIn")) == null) {
-    document.querySelector(".toast-body").innerHTML = "Please, login first";
-    document.querySelector(".toast").classList.replace("d-none", "d-block");
+    toastBody.innerHTML = "Please, login first";
+    toast.classList.replace("d-none", "d-block");
     setTimeout(() => {
-      document.querySelector(".toast").classList.replace("d-block", "d-none");
+      toast.classList.replace("d-block", "d-none");
     }, 1000);
   } else {
     for (let i = 0; i < carProduct.length; i++) {
 console.log(data[indexOfProduct]);
 console.log(carProduct[i][0] );
       if (carProduct[i][0] == data[indexOfProduct]) {
-          document.querySelector(".toast-body").innerHTML = "This product is already exists in your cart.";
-          document.querySelector(".toast").classList.replace("d-none", "d-block");
-          document
-          .querySelector(".toast")
-          .classList.replace("bg-success", "bg-danger");
-    
+          toastBody.innerHTML = "This product is already exists in your cart.";
+          toast.classList.replace("d-none", "d-block");
+          toast.classList.replace("bg-success", "bg-danger");
           setTimeout(() => {
-            document.querySelector(".toast").classList.replace("d-block", "d-none");
+          toast.classList.replace("d-block", "d-none");
           }, 1000);
         return;
       }
     }
-    document.querySelector(".toast-body").innerHTML =
-      "Product added in the cart";
-    // console.log(document.querySelector(".toast-body").innerHTML);
-    document.querySelector(".toast").classList.replace("d-none", "d-block");
-    // console.log(document.querySelector(".toast"));
-    document
-      .querySelector(".toast")
-      .classList.replace("bg-danger", "bg-success");
+    toastBody.innerHTML = "Product added in the cart";
+    // console.log(toastBody.innerHTML);
+    toast.classList.replace("d-none", "d-block");
+    // console.log(toast);
+  toast.classList.replace("bg-danger", "bg-success");
 
     setTimeout(() => {
-      document.querySelector(".toast").classList.replace("d-block", "d-none");
+      toast.classList.replace("d-block", "d-none");
     }, 1000);
     
     countData = [data[indexOfProduct], 1];

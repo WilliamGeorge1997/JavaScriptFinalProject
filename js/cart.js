@@ -18,6 +18,7 @@ let signout = document.querySelector(".signout"),
 tableTfoot = document.querySelector("#table-section table tfoot");
 
 signout.addEventListener("click", function (e) {
+
   e.preventDefault();
 });
 

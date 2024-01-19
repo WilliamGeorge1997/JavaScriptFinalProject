@@ -5,6 +5,7 @@
     --grayBlack--: rgb(48, 43, 43);
     --grayWhite--: rgb(95, 95, 95);
     --red--: rgb(245, 59, 59);
+    --offWhite--:#eeeeee;
   }
   
   *::selection {
@@ -31,7 +32,7 @@
     content: "";
     width: 80%;
     height: 1px;
-    background-color: #e4e4e4;
+    background-color: var(--offWhite--);
     left: 9%;
     bottom: -20px;
     position: absolute;
@@ -166,7 +167,7 @@ header .carousel .carousel-caption {
 header .carousel .carousel-caption .carousel-btn {
   font-size: 12px;
   text-transform: uppercase;
-  background: #ffffff;
+  background: white;
   border-radius: 0;
   padding: 8px 12px;
   border: 0;
@@ -213,13 +214,13 @@ header .carousel .carousel-caption h2 {
   bottom: -15px;
   width: 100%;
   height: 1px;
-  background: #ebedee;
+  background:  var(--offWhite--);
 }
 
 .main_title p {
   font-size: 14px;
   line-height: 24px;
-  color: #797979;
+  color: var(--grayWhite--);
 }
 #about_us .about_content .about_img img {
   width: 100%;
@@ -227,7 +228,7 @@ header .carousel .carousel-caption h2 {
 #about_us .about_content .about_welcome {
   font-size: 36px;
   font-weight: 700;
-  color: rgb(113, 205, 20);
+  color: var(--mainColor--);;
   position: relative;
 }
 #about_us .about_content .about_text p {
@@ -235,13 +236,13 @@ header .carousel .carousel-caption h2 {
   line-height: 40px;
 }
 #about_us .about_content .about_button button {
-  background-color: #71cd14;
+  background-color:var(--mainColor--) ;
   transition: all 0.3s linear 0s;
   border-radius: 0px;
 }
 
 #about_us .about_content .about_button button:hover {
-  background-color: #50930d;
+  background-color: var(--mainColor--);
 }
 #about_us .about_content .about_button button a {
   text-decoration: none;
@@ -249,23 +250,24 @@ header .carousel .carousel-caption h2 {
 #about_us .about_content .about_social a.social-icon {
   margin-left: 8px;
   width: 40px;
-  color: #ffffff;
+  color:  var(--offWhite--);
   height: 40px;
   transition: all 0.3s linear 0s;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #71cd14;
+  background-color: var(--mainColor--);;
 }
 
 #about_us .about_content .about_social a.social-icon:hover {
-  background: #50930d;
+  background: var(--mainColor--);;
 }
 
 /* = = = = = = = = = = END OF ABOUT = = = = = = = = = = */
 
 /* start Products  section */
+
 #Products li a {
   color: black;
 }
@@ -290,7 +292,6 @@ header .carousel .carousel-caption h2 {
 
 #Products span {
   margin-bottom: 10px;
-  display: block;
 }
 
 #Products figure {
@@ -360,7 +361,7 @@ header .carousel .carousel-caption h2 {
 }
 
 .dropdown-menu {
-  --bs-dropdown-link-active-bg: var(--mainColor--);
+  --bs-dropdown-link-active-bg: transparent;
 }
 
 /* end Products  section  */
@@ -407,7 +408,7 @@ color:  var(--mainColor--);
   width: 100%;
   resize: none;
   outline: none;
-  border: 1px rgb(231, 231, 231) solid;
+  border: 1px  var(--offWhite--) solid;
   padding-left: 10px;
   border-radius: 5px;
 }
@@ -417,14 +418,14 @@ color:  var(--mainColor--);
   box-shadow: 0 0 0 0.25rem rgba(93, 253, 13, 0.25);
 }
 #contact .container form textarea::placeholder {
-  color: #cdcdcd;
+  color:  var(--offWhite--);
   font-size: 16px;
 }
 #contact .container form input {
   width: 100%;
   resize: none;
   outline: none;
-  border: 1px rgb(231, 231, 231) solid;
+  border: 1px  var(--offWhite--) solid;
   padding: 15px 0px 15px 10px;
   border-radius: 5px;
 }
@@ -439,23 +440,23 @@ color:  var(--mainColor--);
 }
 /* -------------------------------- END FORM -------------------------------- */
 #contact .container a {
-  color: #212529;
+  color: var(--grayBlack--);
   font-size: 16px;
 }
 #contact .container .gray-paragraph {
-  color: #999999;
+  color: var(--grayWhite--);
   font-size: 14px;
 }
 #contact .container .main-btn {
-  background: #71cd14;
+  background: var(--mainColor--);;
   padding: 11px 30px;
-  color: #fff;
+  color: white;
   font-size: 12px;
   font-weight: 500;
   outline: none !important;
   box-shadow: none !important;
   text-align: center;
-  border: 1px solid #71cd14;
+  border: 1px solid var(--mainColor--);;
   cursor: pointer;
   text-transform: uppercase;
   transition: all 300ms linear 0s;
@@ -464,7 +465,7 @@ color:  var(--mainColor--);
 }
 #contact .container .main-btn:hover {
   background: transparent;
-  color: #71cd14;
+  color: var(--mainColor--);;
 }
 /* --------------------------- END OF CONTACT US --------------------*/
 /* ----------------------------- START OF FOOTER ---------------------------- */
@@ -473,7 +474,7 @@ footer {
 }
 
 footer .single-footer-widget h5 {
-  color: #ffffff;
+  color: white;
   margin-bottom: 35px;
 }
 
@@ -488,12 +489,12 @@ footer .single-footer-widget ul li {
 
 footer .single-footer-widget ul li a {
   transition: all 0.3s linear 0s;
-  color: #797979;
+  color: var(--grayWhite--);
   text-decoration: none;
 }
 
 footer .single-footer-widget ul li a:hover {
-  color: #ffffff;
+  color: white;
 }
 
 footer .single-footer-widget .form-wrap {
@@ -501,7 +502,7 @@ footer .single-footer-widget .form-wrap {
 }
 
 footer .single-footer-widget p.trust {
-  color: #797979;
+  color: var(--grayWhite--);
 }
 
 footer .single-footer-widget input {
@@ -510,7 +511,7 @@ footer .single-footer-widget input {
   width: 70% !important;
   font-weight: 300;
   background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  color: white;
   padding-left: 20px;
   border-radius: 0;
   font-size: 14px;
@@ -518,7 +519,7 @@ footer .single-footer-widget input {
 }
 
 footer .single-footer-widget input::placeholder {
-  color: rgb(146, 146, 146);
+  color: var()
 }
 
 footer .single-footer-widget input:focus {
@@ -557,7 +558,7 @@ footer .footer-bottom .footer-social a {
   background: rgba(255, 255, 255, 0.15);
   margin-left: 8px;
   width: 40px;
-  color: #ffffff;
+  color: white;
   text-align: center;
   height: 40px;
   align-content: center;
