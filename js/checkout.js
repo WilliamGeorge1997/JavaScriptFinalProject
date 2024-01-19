@@ -240,12 +240,12 @@ proceed.addEventListener("click", function (e) {
     input8 === true &&
     input9 === true
   ) {
-    console.log("done")
+    
     users[userContainer.id].carProduct = [];
     localStorage.setItem("userEmailsStorage", JSON.stringify(users));
     localStorage.setItem("userLoggedIn", JSON.stringify(users[userContainer.id]));
     location.assign("../congratulations.html");
   }
-  else{console.log("not done")}
+ 
 });
 //--------------------------------------------------
