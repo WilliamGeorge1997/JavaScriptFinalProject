@@ -3,10 +3,14 @@
 Welcome to EasyBuy E-commerce System repository! This project aims to provide a straightforward e-commerce solution that fetches product data from two APIs. Users can register and login using their email, username, and password following specific regex requirements. The system allows users to view product details, add items to their cart, adjust quantities, apply discounts, and proceed to checkout.
 
 ## Table of Contents
+- [Live demo](#live-demo)
 - [Team Memebrs](#Team-members)
 - [Features](#features)
 - [Installation](#installation)
 - [Images](#Images)
+
+## live-demo
+[![Video Demo](https://img.youtube.com/vi/TdytAU2q18I/0.jpg)](https://www.youtube.com/watch?v=TdytAU2q18I)
 
 ## Team-members
 1. Mai Ahmed Kassem
@@ -44,7 +48,7 @@ Welcome to EasyBuy E-commerce System repository! This project aims to provide a 
 ![Header section](https://github.com/WilliamGeorge1997/JavaScriptFinalProject/assets/70711841/350b7d1b-b1d6-48fe-80d2-61bfde313f95)
 ![About section](https://github.com/WilliamGeorge1997/JavaScriptFinalProject/assets/70711841/fb2a3ffe-786d-44e8-9a57-05dc3ff233c3)
 ![Products section](https://github.com/WilliamGeorge1997/JavaScriptFinalProject/assets/70711841/e845cb8e-c04f-4e91-8b7b-a782aad19626)
-![product details page](https://github.com/WilliamGeorge1997/JavaScriptFinalProject/assets/70711841/e1d9a8ee-8744-4a70-b776-25ad23823cb8)
+![product details](https://github.com/ahmeds0bhi/Linux-labs/assets/70711841/1866ea79-36ff-44ab-a1bc-73e7916fc720)
 ![Cart Page](https://github.com/WilliamGeorge1997/JavaScriptFinalProject/assets/70711841/9ffd4c0c-78e0-4c43-a243-3e87ea8c1fba)
 ![Checkout Page](https://github.com/WilliamGeorge1997/JavaScriptFinalProject/assets/70711841/c94afa24-a59b-41d2-8b57-400608707e03)
 ![signup page](https://github.com/WilliamGeorge1997/JavaScriptFinalProject/assets/70711841/4e325abc-deac-4716-8d32-7040be44ef6e)
