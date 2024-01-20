@@ -9,8 +9,9 @@ Welcome to EasyBuy E-commerce System repository! This project aims to provide a 
 - [Installation](#installation)
 - [Images](#Images)
 
-## live-demo
-[![Video Demo](https://img.youtube.com/vi/TdytAU2q18I/0.jpg)](https://www.youtube.com/watch?v=TdytAU2q18I)
+## Live-demo
+https://github.com/ahmeds0bhi/Linux-labs/assets/70711841/30d9710f-ea70-4876-b8c3-c38d6327a57b
+
 
 ## Team-members
 1. Mai Ahmed Kassem
